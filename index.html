@@ -6,11 +6,17 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 </head>
 <body>
-<img src="mntr_small.jpg" alt="logo"></img>
+
+
+<img src="mntr_small.jpg" alt="logo" style="float:right" width="100pt"></img>
 
 Minotaur is an open source software for solving  mixed-integer nonlinear optimization
 problems. It features solvers for both convex and nonconvex problems. It can
-be extended or customized for specific problem types. Some of its features are:
+be extended or customized for specific problem types. 
+
+
+<a name="features"></a>
+<h3>Features</h3>
 <ul>
 <li> Native support for nonlinear functions including automatic
 differentiation
@@ -18,6 +24,38 @@ differentiation
 <li> Threadsafe callable library
 <li> Compatible with AMPL and Pyomo
 </ul>
+
+<a name="solvers"></a>
+<h3>Solvers Available</h3>
+<ul>
+  <li> <i>bnb</i>: nonlinear optimization based branch-and-bound for convex
+MINLPs
+  <li> <i>qg</i>: LP/NLP based branch-and-cut for convex MINLP
+  <li> <i>qpd</i>: QPDiving based branch-and-bound for convex MINLP
+  <li> <i>glob</i>: Global optimization solver for quadratically constrained
+problems (experimental).
+</ul>
+
+<a name="download"></a>
+<h3>Download</h3>
+Latest stable version is 0.2.1. Download statically linked binaries according
+to your machine architecture:
+<ul>
+  <li> Linux x86_64
+  <li> Mac x86_x64
+</ul>
+We currently do not provide binaries for Windows.
+
+<a name="license"></a>
+<h3>License</h3>
+Minotaur is free to use, modify and redistribute without any restrictions.
+Please <a href="LICENSE">see the license for details</a>.
+
+<a name="help"></a>
+<h3>Help</h3>
+
+<a name="contact"></a>
+<h3>Contact</h3>
 
 </body>
 </html>
