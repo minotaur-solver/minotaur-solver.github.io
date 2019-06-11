@@ -2,14 +2,14 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <title>Minotaur A MINLP solver</title>
+    <title>Minotaur Solver</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 </head>
 <body>
 
 
 <p>
-<img src="mntr_small.jpg" alt="logo" style="float:right" width="100px"></img>
+<img src="mntr_small.jpg" alt="logo" style="float:right; width:8em"></img>
 
 Minotaur is an open source software for solving mixed-integer nonlinear
 optimization problems. It includes solvers for both convex and nonconvex
@@ -24,7 +24,7 @@ problems. It can be extended or customized for specific problem types.
 <li> Native support for nonlinear functions including automatic
 differentiation
 <li> Threadsafe callable library
-<li> Uses BQPD, Clp, CPLEX, IPOPT, CBC, FilterSQP for LP, QP and MILP
+<li> Uses BQPD, CBC, Clp, CPLEX, FilterSQP, IPOPT for LP, QP and MILP
 subproblems
 <li> Compatible with AMPL and Pyomo
 </ul>
@@ -46,12 +46,82 @@ problems (experimental).
 <h3>Download</h3>
 <p>
 Latest stable version is 0.2.1. Download statically linked binaries according
-to your machine architecture:
+to your machine architecture. Solvers are linked to CLP, IPOPT, Filter-SQP and
+BQPD for solving subproblems.
 <ul>
-  <li> Linux x86_64
-  <li> Mac x86_x64
+  <li> <a href="dist/minotaur-0.2.1-linux-x86_64.tar.gz">Linux 64-bit</a>
+  <li> <a href="dist/minotaur-0.2.1-mac-x86_64.tar.gz">Mac 64-bit</a>
+  <li> Binaries for Windows will be available in the near future.
 </ul>
-Binaries for Windows will be available in the near future.
+
+<a href="">Click here for older versions</a>. Source code is available through <a
+href="https://www.github.com/minotaur-solver/minotaur">github</a>.
+<ul>
+  <li> <a
+href="https://github.com/minotaur-solver/minotaur/archive/v0.2.1.zip">Source
+code of version 0.2.1</a>
+  <li> <a href="https://github.com/minotaur-solver/minotaur/archive/master.zip">Latest unstable code</a>
+</ul>
+</p>
+
+<br>
+<a name="compile"></a>
+<h3>Compiling Minotaur on Linux</h3>
+<p>
+First install wget, g++, gfortran, pkg-config (pkgconf), make, cmake and
+lapack (libatlas-dev) on
+your computer. These are readily available on your linux distribution. Then
+open a terminal and change to the directory containing Minotaur source code.
+It should have the LICENSE and README.md files. Then run the following
+commands to compile all third-party libraries.
+<ol>
+<li> cd third-party
+<li> ./build_third_party -j NCPUS
+</ol>
+where NCPUS is the number of cpus on your computer. If all libraries are
+compiled, change back to Minotaur directory and run these commands to compile
+Minotaur:
+<ol>
+<li> mkdir build
+<li> cd build
+<li> cmake -DTHIRD_PARTY_PATH:PATH=../third-party/ &nbsp;&nbsp; ..
+<li> make install -j NCPUS
+</ol>
+where NCPUS is the number of CPUs in your computer. It will build the solvers
+in the bin/ directory and libraries lib/ directory.
+</p>
+
+<br>
+<a name="run"></a>
+<h3>Running Solvers</h3>
+<p>
+Solvers can be run in a terminal or be called through AMPL or Pyomo. They take
+.nl files as input. First add
+to your PATH, the bin directory where the solvers are installed. Then from the
+command line, you can run: 
+
+<br><br>
+<code>bnb stub.nl</code>
+
+<br><br>
+Options can also be provided
+
+<br><br>
+<code>bnb --log_level 4 --nlp_engine IPOPT --bnb_time_limit 100 stub.nl</code>
+
+<br><br>
+To see all options
+
+<br><br>
+<code>bnb -= </code>
+
+<br><br>
+To display the version information
+
+<br><br>
+<code>bnb -v </code>
+<br><br>
+You may replace bnb by qg, qpd or glob etc for other solvers.
 </p>
 
 <br>
@@ -63,15 +133,12 @@ Please <a href="LICENSE.txt">see the license for details</a>.
 </p>
 
 <br>
-<a name="help"></a>
-<h3>Help</h3>
-<p>
-</p>
-
-<br>
 <a name="contact"></a>
 <h3>Contact</h3>
 <p>
+Queries about using the software may be addressed to the <a href="https://lists.mcs.anl.gov/mailman/listinfo/minotaur">Minotaur
+mailing list</a>. Other queries can be made to Ashutosh Mahajan,
+amahajan [at] iitb.ac.in
 </p>
 
 </body>
