@@ -54,7 +54,13 @@ BQPD for solving subproblems.
   <li> Binaries for Windows will be available in the near future.
 </ul>
 
-<a href="">Click here for older versions</a>. Source code is available through <a
+<a href="">Click here for older versions</a>.
+
+<br>
+
+<a name="source"></a>
+<h3>Source Code</h3>
+Source code is available through <a
 href="https://www.github.com/minotaur-solver/minotaur">github</a>.
 <ul>
   <li> <a
@@ -70,9 +76,22 @@ code of version 0.2.1</a>
 <p>
 First install wget, g++, gfortran, pkg-config (pkgconf), make, cmake and
 lapack (libatlas-dev) on
-your computer. These are readily available on your linux distribution. Then
-open a terminal and change to the directory containing Minotaur source code.
-It should have the LICENSE and README.md files. Then run the following
+your computer. These are readily available on linux distributions. Then
+open a terminal and clone or update the source code. To clone github
+repository of Minotaur do:
+<br>
+git clone https://github.com/minotaur-solver/minotaur minotaur
+<br>
+cd minotaur
+<br>
+
+To update the current repository and fetch the recent changes do:
+<br>
+cd minotaur
+git pull
+<br>
+
+'minotaur' directory should have the LICENSE and README.md files. Then run the following
 commands to compile all third-party libraries.
 <ol>
 <li> cd third-party
