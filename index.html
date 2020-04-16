@@ -2,17 +2,18 @@
    "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <head>
-    <title>Minotaur Solver</title>
+    <title>Minotaur Toolkit</title>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
 </head>
 <body>
 
 
+<h2>Minotaur Toolkit</h2>
 <p>
 <img src="mntr_small.jpg" alt="logo" style="float:right; width:8em"></img>
 
-Minotaur is an open source software for solving mixed-integer nonlinear
-optimization problems. It includes solvers for both convex and nonconvex
+Minotaur is an open-source software for solving Mixed-Integer Nonlinear
+Optimization (MINLO) problems. It includes solvers for both convex and nonconvex
 problems. It can be extended or customized for specific problem types. 
 </p>
 
@@ -110,6 +111,72 @@ Minotaur:
 where NCPUS is the number of CPUs in your computer. It will build the solvers
 in the bin/ directory and libraries lib/ directory.
 </p>
+
+<br>
+<a name="solvers"></a>
+<h3>Compiling Minotaur on Windows</h3>
+Minotaur can be compiled using MSYS2. MSYS2 provides Linux like tools for
+compiling and linking binaries.
+<ol>
+    <li> First install <a
+href="https://www.msys2.org/">MSYS2</a> on Windows. 
+
+    <li> Then launch a
+Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
+
+<br><br>
+<code>pacman -Syu</code>
+<br><br>
+
+    <li> If packages were upgraded, close the shell, again open Mingw-w64
+    shell and run the above command again. Keep repeating this cyle until no
+    more updates are installed.
+
+    <li> Install additional packages for compiling C++ and fortran as follows.
+
+    <br><br>
+   <code>pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkgconfig wget autoconf make perl mingw-w64-x86_64-make tar </code>
+   <br><br>
+
+    <li> change to home directory
+    <br><br>
+    <code>cd ~</code>
+    <br><br>
+
+    <li> Get Minotaur from github 
+    <code>git clone https://github.com/minotaur-solver/minotaur.git
+    minotaur</code>
+    <br><br>
+    <li> cd minotaur/third-party
+    <br><br>
+
+    <li> Download some more dependencies and unzip them
+
+    <br><br>
+    <code>wget
+    http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.2.3-third-party-win.tar.gz<br>
+    tar -zxf minotaur-0.2.3-third-party-win.tar.gz
+    </code>
+    <br><br>
+
+    <li> Check that there is now an include, a bin and a lib folder inside the
+    third-pary directory. Finally, compile Minotaur
+    <br><br>
+    <code>cd ..<br>
+    mkdir build <br>
+    cd build <br>
+    cmake -G "Unix Makefiles"
+    -DTHIRD_PARTY_PATH:PATH=${HOME}/minotaur/third-party/
+    -DBUILD_SHARED_LIBS:BOOL=OFF .. <br>
+    make <br>
+    make install
+    </code>
+    <br><br>
+
+    <li> You should now see several binaries in the bin/ folder of build
+    directory. Each of them is a solver. Library files should be seen in lib/
+    folder of the build directory.
+</ol>
 
 <br>
 <a name="run"></a>
