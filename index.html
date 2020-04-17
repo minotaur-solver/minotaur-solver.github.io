@@ -144,17 +144,22 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <br><br>
 
     <li> Get Minotaur from github 
+    <br><br>
     <code>git clone https://github.com/minotaur-solver/minotaur.git
     minotaur</code>
     <br><br>
-    <li> cd minotaur/third-party
+
+    <li> change directory to third-party
+    <br><br>
+    <code>cd minotaur/third-party</code>
     <br><br>
 
     <li> Download some more dependencies and unzip them
 
     <br><br>
     <code>wget
-    http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.2.3-third-party-win.tar.gz<br>
+    http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.2.3-third-party-win.tar.gz
+    <br><br>
     tar -zxf minotaur-0.2.3-third-party-win.tar.gz
     </code>
     <br><br>
@@ -162,13 +167,18 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <li> Check that there is now an include, a bin and a lib folder inside the
     third-pary directory. Finally, compile Minotaur
     <br><br>
-    <code>cd ..<br>
-    mkdir build <br>
-    cd build <br>
+    <code>cd ..
+    <br><br>
+    mkdir build 
+    <br><br>
+    cd build 
+    <br><br>
     cmake -G "Unix Makefiles"
     -DTHIRD_PARTY_PATH:PATH=${HOME}/minotaur/third-party/
-    -DBUILD_SHARED_LIBS:BOOL=OFF .. <br>
-    make <br>
+    -DBUILD_SHARED_LIBS:BOOL=OFF .. 
+    <br><br>
+    make 
+    <br><br>
     make install
     </code>
     <br><br>
