@@ -135,13 +135,8 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <li> Install additional packages for compiling C++ and fortran as follows.
 
     <br><br>
-   <code>pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkgconfig wget autoconf make perl mingw-w64-x86_64-make tar </code>
+   <code>pacman -S git mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkgconfig wget autoconf make perl mingw-w64-x86_64-make tar </code>
    <br><br>
-
-    <li> change to home directory
-    <br><br>
-    <code>cd ~</code>
-    <br><br>
 
     <li> Get Minotaur from github 
     <br><br>
@@ -165,7 +160,8 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <br><br>
 
     <li> Check that there is now an include, a bin and a lib folder inside the
-    third-pary directory. Finally, compile Minotaur
+    third-pary directory. Finally, compile Minotaur in a new directory
+    different from third-party.
     <br><br>
     <code>cd ..
     <br><br>
