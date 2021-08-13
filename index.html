@@ -12,7 +12,7 @@
 <p>
 <img src="mntr_small.jpg" alt="logo" style="float:right; width:8em"></img>
 
-Minotaur is an open-source software for solving Mixed-Integer Nonlinear
+Minotaur is an <a href="https://www.github.com/minotaur-solver/minotaur">open-source</a> software for solving Mixed-Integer Nonlinear
 Optimization (MINLO) problems. It includes solvers for both convex and nonconvex
 problems. It can be extended or customized for specific problem types. 
 </p>
@@ -24,7 +24,7 @@ problems. It can be extended or customized for specific problem types.
 <ul>
 <li> Native support for nonlinear functions including automatic
 differentiation
-<li> Threadsafe callable library
+<li> Multithreaded solvers (OA and QG)
 <li> Uses BQPD, CBC, Clp, CPLEX, FilterSQP, IPOPT for LP, QP and MILP
 subproblems
 <li> Compatible with AMPL and Pyomo
@@ -34,25 +34,33 @@ subproblems
 <a name="solvers"></a>
 <h3>Solvers Available</h3>
 <ul>
-  <li> <i>bnb</i>: nonlinear optimization based branch-and-bound for convex
+  <li> <i>mbnb</i>: nonlinear optimization based branch-and-bound for convex
 MINLPs
-  <li> <i>qg</i>: LP/NLP based branch-and-cut for convex MINLP
-  <li> <i>qpd</i>: QP-Diving based branch-and-bound for convex MINLP
-  <li> <i>glob</i>: Global optimization solver for quadratically constrained
-problems (experimental).
+  <li> <i>mqg</i>: LP/NLP based branch-and-cut for convex MINLP
+  <li> <i>mqgpar</i>: Shared-memory parallel version of LP/NLP based
+  branch-and-cut for convex MINLP
+  <li> <i>mglob</i>: Global optimization solver for quadratically constrained
+problems.
+  <li> <i>mmultistart</i>: Multistart heuristic for nonconvex MINLP
+</ul>
+
+Also available when compiled with CPLEX:
+<ul>
+  <li> <i>moa</i>: Outer Approximation for convex MINLP
+  <li> <i>mlstoa</i>: Outer Approximation for convex MINLP with lazy callbacks
 </ul>
 
 <br>
 <a name="download"></a>
 <h3>Download</h3>
 <p>
-Latest stable version is 0.2.1. Download statically linked binaries according
+Latest stable version is 0.3.0. Download statically linked binaries according
 to your machine architecture. Solvers are linked to CLP, IPOPT, Filter-SQP and
 BQPD for solving subproblems.
 <ul>
-  <li> <a href="dist/minotaur-0.2.1-linux-x86_64.tar.gz">Linux 64-bit</a>
-  <li> <a href="dist/minotaur-0.2.1-mac-x86_64.tar.gz">Mac 64-bit</a>
-  <li> Binaries for Windows will be available in the near future.
+  <li> <a href="dist/minotaur-0.3.0-linux-x86_64.tar.gz">Linux 64-bit</a>
+  <li> <a href="dist/minotaur-0.3.0-mac-x86_64.tar.gz">Mac 64-bit</a>
+  <li> <a href="dist/minotaur-0.3.0-win-x86_64.tar.gz">Windows 64-bit</a>
 </ul>
 
 <a href="">Click here for older versions</a>.
@@ -65,8 +73,8 @@ Source code is available through <a
 href="https://www.github.com/minotaur-solver/minotaur">github</a>.
 <ul>
   <li> <a
-href="https://github.com/minotaur-solver/minotaur/archive/v0.2.1.zip">Source
-code of version 0.2.1</a>
+href="https://github.com/minotaur-solver/minotaur/archive/v0.3.0.zip">Source
+code of version 0.3.0</a>
   <li> <a href="https://github.com/minotaur-solver/minotaur/archive/master.zip">Latest unstable code</a>
 </ul>
 </p>
@@ -153,9 +161,9 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
 
     <br><br>
     <code>wget
-    http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.2.3-third-party-win.tar.gz
+    http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.3.0-third-party-win.tar.gz
     <br><br>
-    tar -zxf minotaur-0.2.3-third-party-win.tar.gz
+    tar -zxf minotaur-0.3.0-third-party-win.tar.gz
     </code>
     <br><br>
 
@@ -194,27 +202,27 @@ to your PATH, the bin directory where the solvers are installed. Then from the
 command line, you can run: 
 
 <br><br>
-<code>bnb stub.nl</code>
+<code>mbnb stub.nl</code>
 
 <br><br>
 Options can also be provided
 
 <br><br>
-<code>bnb --log_level 4 --nlp_engine IPOPT --bnb_time_limit 100 stub.nl</code>
+<code>mbnb --log_level 4 --nlp_engine IPOPT --bnb_time_limit 100 stub.nl</code>
 
 <br><br>
 To see all options
 
 <br><br>
-<code>bnb -= </code>
+<code>mbnb -= </code>
 
 <br><br>
 To display the version information
 
 <br><br>
-<code>bnb -v </code>
+<code>mbnb -v </code>
 <br><br>
-You may replace bnb by qg, qpd or glob etc for other solvers.
+You may replace mbnb by mqg, or mglob etc for other solvers.
 </p>
 
 <br>
