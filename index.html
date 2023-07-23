@@ -158,13 +158,10 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <code>cd minotaur/third-party</code>
     <br><br>
 
-    <li> Download some more dependencies and unzip them
+    <li> Compile third-party libraries that are required by Minotaur. This steps take a long time, as it compiles ASL, CLP, LAPACK, IPOPT, CPPUNIT etc. The -j4 option tells the script to compile in parallel using 4 CPUs. Adjust this number to the number on your computer.
 
     <br><br>
-    <code>wget
-    https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/third-party/minotaur-0.3.0-third-party-win.tar.gz
-    <br><br>
-    tar -zxf minotaur-0.3.0-third-party-win.tar.gz
+    <code> ./build_third_party -s -f -b -w -j4 
     </code>
     <br><br>
 
@@ -180,7 +177,7 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
     <br><br>
     cmake -G "Unix Makefiles"
     -DTHIRD_PARTY_PATH:PATH=${HOME}/minotaur/third-party/
-    -DBUILD_SHARED_LIBS:BOOL=OFF .. 
+    -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF .. 
     <br><br>
     make 
     <br><br>
@@ -190,7 +187,8 @@ Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
 
     <li> You should now see several binaries in the bin/ folder of build
     directory. Each of them is a solver. Library files should be seen in lib/
-    folder of the build directory.
+    folder of the build directory. The above procedure installs Minotaur
+    without FilterSQP and BQPD solvers.
 </ol>
 
 <br>
