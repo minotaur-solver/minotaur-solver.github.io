@@ -1,0 +1,466 @@
+* {
+    margin: 0;
+    font-family: Arial;
+    border: border-box;
+    
+}
+
+body {
+    padding: 0;
+    background-color: #ebdbd3;
+    overflow-x: hidden;
+    
+    
+}
+
+.navbar {
+    height: 53px;
+    background-color: #0f1111;
+    color: white;
+    position: relative; /* Make the navbar relative to allow absolute positioning */
+
+}
+
+.nav-buttons {
+    display: flex;
+    position: absolute;
+    top: 50%; /* Vertically center the buttons */
+   margin-left:14px; /* Add 40mm space to the right of the navbar */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+}
+/* For documentation*/
+
+.download-button,
+.documentation-button {
+    padding: 8px 15px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Add some space between the buttons */
+    height: 35px;
+}
+
+
+/* To add Logo
+.logo {
+    background-image: url("Minotaur.jpg");
+    background-size: cover;
+    height: 100px;
+    width: 86px;
+}
+*/
+
+
+/*Section 2 For Minotaur Content*/
+
+.minotaur-info {
+    height: 300px;
+    background-color: #e9eeee;
+    color: rgb(31, 25, 25);
+    position: relative; /* Make the navbar relative to allow absolute positioning */
+}
+
+.minotaur-content{
+    margin-left: 50px;
+    color :black;
+    font-size: 35;
+    position: relative;
+    top: 30%;
+    
+}
+.code-button {
+    padding: 8px 15px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px; /* Add some space between the buttons */
+    position: absolute;
+    border: 3px solid rgb(4, 4, 4);
+    margin-left: 210px;
+ 
+}
+
+.logo2 {
+   display: flex;
+    height: 300px;
+    width: 110px;
+    margin-right: 10px;
+    display: flex;
+    position: absolute;
+    top: 0.1%; /* Vertically center the buttons */
+    right: 60mm; /* Add 40mm space to the right of the navbar */
+}
+
+/*Section 3 Features and Solver*/
+
+.features-solvers {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e9eeee;
+    padding: 20px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Adding shadow to the section */
+    margin-top: 30px;
+}
+
+.features, .solvers {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content horizontally */
+    padding: 20px;
+    border: 1px solid #d1d5db; /* Adding a border to the box */
+    border-radius: 20px; /* Rounded corners for the box */
+    background-color: #e4e6df; /* Background color for the box */
+
+}
+.hamburger .line{
+    width: 23px;
+    height: 6px;
+    margin-top: 2px;
+    color: white;
+    background-color: white;
+    
+}
+.links{
+    background-color: black;
+    display:none;
+}
+.links ul li{
+    margin-top:6px;  
+    list-style: none;
+}
+.links ul li a{
+    text-decoration: none;
+    color:white;
+
+}
+.links ul li a:hover{
+    color:red;
+}
+.hamburger{
+    display: none;
+}
+.logo3{
+    display:none;
+}
+
+.features {
+    margin-right: 10px; /* Add right margin to create distance between boxes */
+    margin-top: 2px;
+}
+
+.features h2, .solvers h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.features ul, .solvers ul {
+    font-size: 20px;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.solvers p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+
+/*For Footer justify-content: space-evenly;*/
+.footer {
+    display: flex;
+    margin-block-end: 20px;
+    
+    background-color: #0f1111; /* Same background color as the header */
+    color: white;
+    padding: 20px;
+    position: relative;
+    top:20px;
+}
+
+.footer h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.footer a {
+    color: rgb(209, 137, 137);
+}
+
+.license{
+    margin-left:60px;
+}
+
+/* For Downloads and Source Code Sections */
+
+.downloads-info {
+    background-color: #ebdbd3;
+    align-content: center;
+    color: rgb(31, 25, 25);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; /* Distribute content evenly between boxes */
+}
+
+.downloads-content, .source-code-content {
+    background-color: #e9eeee;
+    flex-basis: 35%; /* Set the width of the boxes */
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+   
+    margin: 15px; /* Add margin between the boxes */
+}
+
+.downloads-content h1, .source-code-content h1 {
+    font-size: 45px;
+    text-align: center;
+}
+
+.downloads-content p, .source-code-content p {
+    font-size: 15px;
+    text-align:left;
+}
+
+.download-buttons, .source-code-buttons {
+    display: flex;
+   
+    margin-top: 20px; /* Add some space between the buttons and the text */
+}
+
+.download-button, .source-code-button {
+    padding: 8px 15px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px; /* Add space between the buttons */
+}
+
+
+
+/* For Compiling and Running Sections */
+
+.compiling-info {
+    background-color: #ebdbd3;
+   
+    color: rgb(31, 25, 25);
+    padding: 0px 15px;
+    
+    flex-wrap: wrap; /* Allow content to wrap when screen size is small */
+    justify-content: space-between; /* Distribute content evenly between boxes */
+}
+
+.running-info {
+    background-color: #e9eeee;
+    color: rgb(31, 25, 25);
+    padding: 20px;
+    margin-top: 20px; /* Add some space between the two sections */
+}
+
+.compiling-content, .running-info {
+    background-color: #e4e6df; 
+    flex-basis: 45%; /* Set the width of the boxes */
+    padding: 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin: 10px; /* Add margin between the boxes */
+}
+
+.compiling-content h1, .running-info h1 {
+    font-size: 45px;
+    text-align: center;
+}
+
+.compiling-content p, .running-info p {
+    font-size: 20px;
+    text-align: left;
+}
+
+.compiling-content pre, .running-info pre {
+    font-size: 14px;
+    background-color: #f3f4f6;
+    padding: 10px;
+    margin: 10px;
+}
+.running-info {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+@media screen and  (max-width: 991px){
+    
+}
+
+
+
+@media only screen and (max-width: 1356px){
+    .minotaur-content {
+    margin-left: 9%;
+    color: black;
+    font-size: 35;
+    position: relative;
+    top: 17%;
+    width: 44%;
+    }
+
+}
+@media only screen and (max-width:833px){
+    .navbar{
+        height:60px;
+    }
+    .documentation-button{
+        height:30px;
+        
+        
+    }
+    .minotaur-info {
+        height: 534px;
+    }
+    .minotaur-content {
+        margin-left: 1%;
+        color: black;
+        font-size: 35;
+        position: relative;
+        top: 62%;
+        width: 100%;
+    }
+    .logo2{
+        top: 3.1%;
+   
+    right:117mm
+    }
+    .minotaur-content h1{
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (max-width:685px){
+    .logo2{
+        display: none;
+   
+    right:117mm
+    }
+    .logo3{
+        display:block;
+        margin-top: -191px;
+    }
+   .img{
+    /* border: 2px solid red; */
+    left: 12%;
+    width: 373px;
+    height: 294px;
+    position: relative;
+   }
+   .img img{
+    width:100%;
+    height:100%;
+   }
+    .features-solvers{
+        flex-direction: column;
+    }
+    .features{
+        margin-bottom:33px;
+    }
+    .license{
+        margin-left:-5px;
+    }
+    
+
+}
+@media only screen and (max-width:456px){
+    .img{
+        left:-5%;
+    }
+}
+@media only screen and (max-width:398px){
+    .logo3{
+        margin-top:-235px;
+    }
+    .minotaur-info {
+        height: 651px;
+    }
+}
+@media only screen and (max-width:365px){
+    .img{
+        width: 290px;
+        height: 200px;
+        border: 2px solid;
+        margin-left:12%;
+    }
+    .hamburger{
+        display:block;
+
+    }
+    .nav-buttons a{
+        display: none;
+    }
+    .links{
+       
+        margin-top:-6px;
+        height:140px;
+    }
+    .links ul{
+        margin-left: -27px;
+    position: relative;
+    top: 19px;
+    }
+    .footer{
+        display: flex;
+    margin-block-end: 20px;
+    background-color: #0f1111;
+    color: white;
+    padding: 20px;
+        flex-direction: column;
+        position: relative;
+    top: 20px;
+    
+    }
+    .license {
+        margin-left: 12px;
+    }
+    .minotaur-info{
+        padding-bottom:70px;
+    }
+}
+
+@media only screen and (max-width:329px){
+    .logo3{
+        margin-top:-280px;
+    }
+    .img{
+        width:250px;
+        height:150px;
+    }
+    .minotaur-info {
+        height: 395px;
+        padding-bottom:204px;
+    }
+}
+
+@media only screen and (max-width:329px){
+.img{
+    width:172px;
+    height:114px;
+}
+
+}
+@media only screen and (max-width:244px){
+    .logo3 {
+        margin-top: -334px;
+        width: 45%;
+    }
+
+}
+

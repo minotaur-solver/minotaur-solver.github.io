@@ -1,255 +1,141 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minotaur Toolkit</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <header>
+        <div class="navbar">
+        
+            <div class="logo">
+            </div>
+            
+            <div class="nav-buttons">
+                <div class="hamburger " onclick="func()" >
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                
+                </div>
+                <a href="index.html">
+                    <button style="color: rgb(0, 0, 0);" class="documentation-button">Home</button>
+                </a>
+                <a href="downloads.html">
+                    <button class="documentation-button">Download</button>
+                </a>
+                <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">
+                <button class="documentation-button">Documentation</button>
+            </a>
+                 
+
+            <a href="https://www.github.com/minotaur-solver/minotaur">
+                <button class="documentation-button">Source Code</button>
+            </a>
+              
 
 
-<h2>Minotaur Toolkit</h2>
-<p>
-<img src="mntr_small.jpg" alt="logo" style="float:right; width:8em"></img>
+            </div>
+        </div>
+    </header>
+    <section class="links" id="extra">
+        <ul>
+            <li>
+                <a href="downloads.html">Download</a>
+            </li>
+            <li>
+                <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Documentation</a>
+            </li>
+            <li><a href="https://www.github.com/minotaur-solver/minotaur">Source Code</a></li>
+            <li onclick="func2()"><a href="">Close</a></li>
+        </ul>
+    </section>
 
-Minotaur is an <a href="https://www.github.com/minotaur-solver/minotaur">open-source</a> software for solving Mixed-Integer Nonlinear
-Optimization (MINLO) problems. It includes solvers for both convex and nonconvex
-problems. It can be extended or customized for specific problem types. 
-</p>
+    <section class="minotaur-info">
+        <div class="minotaur-content">
+            <h1 style="font-size: 45px; align-self: center;">Minotaur Toolkit </h1>
+            <p style="font-size: 20px;">
+                Minotaur is an open-source software for solving Mixed-Integer Nonlinear Optimization <br> (MINLO)
+                problems.
+                It includes solvers for both convex and nonconvex problems. It can <br> be extended or customized for
+                specific problem types.
+            </p>
+            <br>
+            <br>
+           
+        </div>
+        <div class="logo2">
+            <img src="Minotaur3.png" alt="Minotaur Logo">
+        </div>
+        <div class="logo3">
+            <div class="img">
+                <img src="Minotaur3.png" alt="Minotaur Logo">
+            </div>
+        </div>
+        
+    </section>
 
 
-<br>
-<a name="features"></a>
-<h3>Features</h3>
-<ul>
-<li> Native support for nonlinear functions including automatic
-differentiation
-<li> Multithreaded solvers (OA and QG)
-<li> Uses BQPD, CBC, Clp, CPLEX, FilterSQP, IPOPT for LP, QP and MILP
-subproblems
-<li> Compatible with AMPL and Pyomo
-</ul>
-
-<br>
-<a name="solvers"></a>
-<h3>Solvers Available</h3>
-<ul>
-  <li> <i>mbnb</i>: nonlinear optimization based branch-and-bound for convex
-MINLPs
-  <li> <i>mqg</i>: LP/NLP based branch-and-cut for convex MINLP
-  <li> <i>mqgpar</i>: Shared-memory parallel version of LP/NLP based
-  branch-and-cut for convex MINLP
-  <li> <i>mglob</i>: Global optimization solver for quadratically constrained
-problems.
-  <li> <i>mmultistart</i>: Multistart heuristic for nonconvex MINLP
-</ul>
-
-Also available when compiled with CPLEX:
-<ul>
-  <li> <i>moa</i>: Outer Approximation for convex MINLP
-  <li> <i>mlstoa</i>: Outer Approximation for convex MINLP with lazy callbacks
-</ul>
-
-<br>
-<a name="download"></a>
-<h3>Download</h3>
-<p>
-Latest stable version is 0.3. Download statically linked binaries according
-to your machine architecture. Solvers are linked to CLP, IPOPT, Filter-SQP and
-BQPD for solving subproblems.
-<ul>
-  <li> <a
-  href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.3-linux-x86_64.tar.gz">Linux 64-bit</a>
-  <li> <a
-  href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.3-win64.zip">Windows 64-bit</a>
-</ul>
-
-<!------ <a href="">Click here for older versions</a>. ------>
-
-<br>
-
-<a name="source"></a>
-<h3>Source Code</h3>
-Source code is available through <a
-href="https://www.github.com/minotaur-solver/minotaur">github</a>.
-<ul>
-  <li> <a
-href="https://github.com/minotaur-solver/minotaur/archive/v0.3.zip">Source
-code of version 0.3</a>
-  <li> <a href="https://github.com/minotaur-solver/minotaur/archive/master.zip">Latest unstable code</a>
-</ul>
-</p>
-
-<br>
-<a name="compile"></a>
-<h3>Compiling Minotaur on Linux</h3>
-<p>
-First install wget, g++, gfortran, pkg-config (pkgconf), make, cmake and
-lapack (libatlas-dev) on
-your computer. These are readily available on linux distributions. Then
-open a terminal and clone or update the source code. To clone github
-repository of Minotaur do:
-<br><br>
-git clone https://github.com/minotaur-solver/minotaur minotaur
-<br>
-cd minotaur
-<br><br>
-
-To update the current repository and fetch the recent changes do:
-<br><br>
-cd minotaur<br>
-git pull
-<br><br>
-
-'minotaur' directory should have the LICENSE and README.md files. Once you are
-in this directory, run the following
-commands to compile all third-party libraries.
-<ol>
-<li> cd third-party
-<li> ./build_third_party -j NCPUS
-</ol>
-where NCPUS is the number of cpus on your computer. If all libraries are
-compiled, change back to Minotaur directory and run these commands to compile
-Minotaur:
-<ol>
-<li> mkdir build
-<li> cd build
-<li> cmake -DTHIRD_PARTY_PATH:PATH=../third-party/ &nbsp;&nbsp; ..
-<li> make install -j NCPUS
-</ol>
-where NCPUS is the number of CPUs in your computer. It will build the solvers
-in the bin/ directory and libraries lib/ directory.
-</p>
-
-<br>
-<a name="compile-win"></a>
-<h3>Compiling Minotaur on Windows</h3>
-Minotaur can be compiled using MSYS2. MSYS2 provides Linux like tools for
-compiling and linking binaries.
-<ol>
-    <li> First install <a
-href="https://www.msys2.org/">MSYS2</a> on Windows. 
-
-    <li> Then launch a
-Mingw-w64 64 bit shell from the MSYS2 terminal. Update the installed packages.
-
-<br><br>
-<code>pacman -Syu</code>
-<br><br>
-
-    <li> If packages were upgraded, close the shell, again open Mingw-w64
-    shell and run the above command again. Keep repeating this cyle until no
-    more updates are installed.
-
-    <li> Install additional packages for compiling C++ and fortran as follows.
-
-    <br><br>
-   <code>pacman -S git mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkg-config wget autoconf make perl mingw-w64-x86_64-make tar </code>
-   <br><br>
-
-    <li> Get Minotaur from github 
-    <br><br>
-    <code>git clone https://github.com/minotaur-solver/minotaur.git
-    minotaur</code>
-    <br><br>
-
-    <li> change directory to third-party
-    <br><br>
-    <code>cd minotaur/third-party</code>
-    <br><br>
-
-    <li> Compile third-party libraries that are required by Minotaur. This steps take a long time, as it compiles ASL, CLP, LAPACK, IPOPT, CPPUNIT etc. The -j4 option tells the script to compile in parallel using 4 CPUs. Adjust this number to the number on your computer.
-
-    <br><br>
-    <code> ./build_third_party -s -f -b -w -j4 
-    </code>
-    <br><br>
-
-    <li> Check that there is now an include, a bin and a lib folder inside the
-    third-pary directory. Finally, compile Minotaur in a new directory
-    different from third-party.
-    <br><br>
-    <code>cd ..
-    <br><br>
-    mkdir build 
-    <br><br>
-    cd build 
-    <br><br>
-    cmake -G "MSYS Makefiles"
-    -DTHIRD_PARTY_PATH:PATH=${HOME}/minotaur/third-party/
-    -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF .. 
-    <br><br>
-    make 
-    <br><br>
-    make install
-    </code>
-    <br><br>
-
-    <li> You should now see several binaries in the bin/ folder of build
-    directory. Each of them is a solver. Library files should be seen in lib/
-    folder of the build directory. The above procedure installs Minotaur
-    without FilterSQP and BQPD solvers.
-</ol>
-
-<br>
-<a name="run"></a>
-<h3>Running Solvers</h3>
-<p>
-Solvers can be run in a terminal or be called through AMPL or Pyomo. They take
-.nl files as input. First add
-to your PATH, the bin directory where the solvers are installed. Then from the
-command line, you can run: 
-
-<br><br>
-<code>mbnb stub.nl</code>
-
-<br><br>
-Options can also be provided
-
-<br><br>
-<code>mbnb --log_level 4 --nlp_engine IPOPT --bnb_time_limit 100 stub.nl</code>
-
-<br><br>
-To see all options
-
-<br><br>
-<code>mbnb -= </code>
-
-<br><br>
-To display the version information
-
-<br><br>
-<code>mbnb -v </code>
-<br><br>
-You may replace mbnb by mqg, or mglob etc for other solvers.
-</p>
-
-<br>
-<a name="doc"></a>
-<h3>Documentation</h3>
-<ul>
-  <li><a = href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/styleguide.html">Style Guide</li>
-  <li><a = href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Source Code Documentation</li>
-</ul>
-
-<br>
-<a name="license"></a>
-<h3>License</h3>
-<p>
-Minotaur is free to use, modify and redistribute without any restrictions.
-Please <a href="LICENSE.txt">see the license for details</a>.
-</p>
-
-<br>
-<a name="contact"></a>
-<h3>Contact</h3>
-<p>
-Queries about using the software may be addressed to the <a href="https://lists.mcs.anl.gov/mailman/listinfo/minotaur">Minotaur
-mailing list</a>. Other queries can be made to Ashutosh Mahajan,
-amahajan [at] iitb.ac.in
-</p>
-
+    <section class="features-solvers">
+        <div class="features">
+            <h2>Features</h2>
+            <ul>
+                <li>Native support for nonlinear functions including automatic differentiation</li>
+                <li>Multithreaded solvers (OA and QG)</li>
+                <li>Uses BQPD, CBC, Clp, CPLEX, FilterSQP, IPOPT for LP, QP and MILP subproblems</li>
+                <li>Compatible with AMPL and Pyomo</li>
+            </ul>
+        </div>
+        <div class="solvers">
+            <h2>Solvers Available</h2>
+            <ul>
+                <li>mbnb: nonlinear optimization based branch-and-bound for convex MINLPs</li>
+                <li>mqg: LP/NLP based branch-and-cut for convex MINLP</li>
+                <li>mqgpar: Shared-memory parallel version of LP/NLP based branch-and-cut for convex MINLP</li>
+                <li>mglob: Global optimization solver for quadratically constrained problems.</li>
+                <li>mmultistart: Multistart heuristic for nonconvex MINLP</li>
+            </ul>
+            <p>Also available when compiled with CPLEX:</p>
+            <ul>
+                <li>moa: Outer Approximation for convex MINLP</li>
+                <li>mlstoa: Outer Approximation for convex MINLP with lazy callbacks</li>
+            </ul>
+        </div>
+    </section>
+    <footer class="footer">
+        <a name="license"></a>
+        <div class="license" >
+            <h2>License</h2>
+            <p>Minotaur is free to use, modify, and redistribute without any restrictions.<br> <a href='https://minotaur-solver.github.io/LICENSE.txt'>see the license for details </a></p>
+        </div>
+        <div class="contact" style="margin-left: 4%;">
+            <h2>Contact</h2>
+            <p>Queries about using the software may be addressed to the <a href="https://lists.mcs.anl.gov/mailman/listinfo/minotaur" >Minotaur mailing list</a>. <br>Other queries can be made to Ashutosh Mahajan, amahajan [at] iitb.ac.in</p>
+        </div>
+    </footer>
+    
 </body>
+
+<script>
+
+    const func=()=>{
+        document.getElementById('extra').style.display="block";
+        
+
+    }
+    const func2=()=>{
+        document.getElementById('extra').style.display="none";
+        
+
+    }
+</script>
+
 </html>
-
-

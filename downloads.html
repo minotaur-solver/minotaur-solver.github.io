@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minotaur Download</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style2.css">
+    </head>
+
+<body>
+    <header>
+        <div class="navbar">
+        
+            <div class="logo">
+            </div>
+            
+            <div class="nav-buttons">
+                <div class="hamburger " onclick="func()" >
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                
+                </div>
+                <a href="index.html">
+                    <button class="documentation-button">Home</button>
+                </a>
+                <a href="downloads.html">
+                    <button style="color: rgb(0, 0, 0)"; class="documentation-button">Download</button>
+                </a>
+                <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">
+                <button class="documentation-button">Documentation</button>
+            </a>
+                 
+
+            <a href="https://www.github.com/minotaur-solver/minotaur">
+                <button class="documentation-button">Source Code</button>
+            </a>
+              
+
+
+            </div>
+        </div>
+    </header>
+    <section class="links" id="extra">
+        <ul>
+            <li>
+                <a href="downloads.html">Download</a>
+            </li>
+            <li>
+                <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Documentation</a>
+            </li>
+            <li><a href="https://www.github.com/minotaur-solver/minotaur">Source Code</a></li>
+            <li onclick="func2()"><a href="">Close</a></li>
+        </ul>
+    </section>
+
+
+    <section class="downloads-info">
+        <div class="mainclass">
+          <div class="downloads-content">
+            <h2 style="font-size: 40px; text-align: center;">Download</h2>
+            <br>
+            <p style="font-size: 18px; text-align: left;">
+              Latest stable version is 0.3. Download statically linked binaries according to your machine architecture.
+              Solvers are linked to CLP, IPOPT, Filter-SQP, and BQPD for solving subproblems.
+            </p>
+            <div class="download-buttons">
+              <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.3-linux-x86_64.tar.gz">
+                <button class="custom-button">Linux 64-bit</button>
+              </a>
+              <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.3-win64.zip">
+                <button class="custom-button">Windows 64-bit</button>
+              </a>
+            </div>
+          </div>
+      
+          <div class="source-code-content">
+            <h2 style="font-size: 40px; text-align: center;">Source Code</h2>
+            <br>
+            <p style="font-size: 18px; text-align: center;">Source code is available through <a href="https://www.github.com/minotaur-solver/minotaur"> Github</a></p>
+            <br>
+            <br>
+            <div class="source-code-buttons">
+              <a href="https://github.com/minotaur-solver/minotaur/archive/v0.3.zip">
+                <button class="custom-button">Source code of version 0.3</button>
+              </a>
+              <a href="https://github.com/minotaur-solver/minotaur/archive/master.zip">
+                <button class="custom-button">Latest unstable code</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+
+
+     <section class="compiling-info">
+        <div class="conf">
+        <div class="compiling-content">
+            <h1 style="font-size: 40px; text-align: center;">Compiling Minotaur on Linux</h1>
+            <p style="font-size: 18px; text-align: left;">
+                First install wget, g++, gfortran, pkg-config (pkgconf), make, cmake, and lapack (libatlas-dev) on your
+                computer. These are readily available on Linux distributions. Then open a terminal and clone or update the
+                source code. To clone the GitHub repository of Minotaur, do:
+            </p>
+            <p style="font-size: 16px; background-color: #f3f4f6; padding: 10px; margin: 10px;">
+                git clone https://github.com/minotaur-solver/minotaur minotaur
+                <br>
+                cd minotaur
+                <br>
+                git pull
+            </p>
+            <p style="font-size: 18px; text-align: left;">
+                'minotaur' directory should have the LICENSE and README.md files. Once you are in this directory, run the
+                following commands to compile all third-party libraries.
+            </p>
+            <p style="font-size: 16px; background-color: #f3f4f6; padding: 10px; margin: 10px;">
+                cd third-party
+                <br>
+                ./build_third_party -j NCPUS
+            </p>
+            <p style="font-size: 18px; text-align: left;">
+                where NCPUS is the number of CPUs on your computer. If all libraries are compiled, change back to the Minotaur
+                directory and run these commands to compile Minotaur:
+            </p>
+            <p style="font-size: 16px; background-color: #f3f4f6; padding: 10px; margin: 10px;">
+                mkdir build
+                <br>
+                cd build
+                <br>
+                cmake -DTHIRD_PARTY_PATH:PATH=../third-party/    ..
+                <br>
+                make install -j NCPUS
+            </p>
+            <p style="font-size: 18px; text-align: left;">
+                where NCPUS is the number of CPUs in your computer. It will build the solvers in the bin/ directory and libraries
+                lib/ directory.
+            </p>
+        </div>
+    
+        <div class="compiling-content">
+            <h1 style="font-size: 40px; text-align: center;">Compiling Minotaur on Windows</h1>
+            <p style="font-size: 18px; text-align: left;">
+                Minotaur can be compiled using <a
+                href="https://www.msys2.org/"> MSYS2 </a>. MSYS2 provides Linux-like tools for compiling and linking binaries.
+            </p>
+            
+                <p style="font-size: 18px;" >1. First install MSYS2 on Windows.</p>
+                <p style="font-size: 18px;"> 2.Then launch a Mingw-w64 64-bit shell from the MSYS2 terminal. Update the installed packages.</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    pacman -Syu </p>
+                    
+                <p style="font-size: 18px;" >3. If packages were upgraded, close the shell, again open Mingw-w64 shell and run the above command again.
+                    Keep repeating this cycle until no more updates are installed.
+                </p>
+                <p style="font-size: 18px;">4. Install additional packages for compiling C++ and Fortran as follows.</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    pacman -S git mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkg-config wget autoconf make perl mingw-w64-x86_64-make tar
+                </p>
+                <p style="font-size: 18px;">5. Get Minotaur from GitHub</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    git clone https://github.com/minotaur-solver/minotaur.git minotaur
+                </p>
+                <p>6. Change the directory to third-party</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    cd minotaur/third-party
+                </p>
+                <p style="font-size: 18px;">7. Compile third-party libraries that are required by Minotaur. This step takes a long time, as it compiles ASL, CLP, LAPACK, IPOPT, CPPUNIT, etc. The -j4 option tells the script to compile in parallel using 4 CPUs. Adjust this number to the number on your computer.</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    ./build_third_party -s -f -b -w -j4
+                </p>
+                <p style="font-size: 18px;">8. Check that there is now an include, a bin, and a lib folder inside the third-party directory. Finally, compile Minotaur in a new directory different from third-party.</p>
+                <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
+                    cd ..
+                <br>
+                    mkdir build
+                <br>
+                    cd build
+                <br>
+                    cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH : PATH =$ {HOME} / minotaur / third-party / -DBUILD_SHARED_LIBS : BOOL= OFF -DUSE_FILTERSQP : BOOL= OFF ..
+                <br>
+                    make
+                <br>
+                    make install
+                </p>
+                <p style="font-size: 18px;">9. You should now see several binaries in the bin/ folder of the build directory. Each of them is a solver. Library files should be seen in the lib/ folder of the build directory. The above procedure installs Minotaur without FilterSQP and BQPD solvers.</p>
+          
+        </div>
+    </div>
+    </section> 
+    
+    <section class="running-info">
+        <h1 style="font-size: 40px; text-align: center;">Running Solvers</h1>
+        <p style="font-size: 18px; text-align: left;">
+            Solvers can be run in a terminal or be called through AMPL or Pyomo. They take .nl files as input. First, add to your
+            PATH, the bin directory where the solvers are installed. Then from the command line, you can run:
+        </p>
+        <!-- <p style="font-size: 14px; background-color: #f3f4f6; padding: 10px; margin: 10px; font-size:16px"> -->
+           <p style="font-size: 16px;padding: 10px; margin: 10px; background-color: #f3f4f6; "> mbnb stub.nl</p>
+    
+           <p style="font-size: 18px; text-align: left;" >Options can also be provided</p>
+    
+          <p style="font-size: 16px;padding: 10px; margin: 10px; background-color: #f3f4f6;"> mbnb --log_level 4 --nlp_engine IPOPT --bnb_time_limit 100 stub.nl</p>
+    
+           <p style="font-size: 18px; text-align: left;" > To see all options</p>
+    
+            <p style="font-size: 16px;padding: 10px; margin: 10px; background-color: #f3f4f6;">mbnb -=</p>
+    
+            <p style="font-size: 18px; text-align: left;" > To display the version information</p>
+    
+            <p style="font-size: 16px;padding: 10px; margin: 10px; background-color: #f3f4f6;"> mbnb -v</p>
+    
+           <p style="font-size: 18px; text-align: left;" > You may replace mbnb by mqg, or mglob, etc., for other solvers.</p>
+        <!-- </p> -->
+    </section>
+    <footer class="footer">
+        <a name="license"></a>
+        <div class="license" >
+            <h2>License</h2>
+            <p>Minotaur is free to use, modify, and redistribute without any restrictions.<br> <a href='https://minotaur-solver.github.io/LICENSE.txt'>see the license for details </a></p>
+        </div>
+        <div class="contact" style="margin-left: 4%;">
+            <h2>Contact</h2>
+            <p>Queries about using the software may be addressed to the <a href="https://lists.mcs.anl.gov/mailman/listinfo/minotaur" >Minotaur mailing list</a>. <br>Other queries can be made to Ashutosh Mahajan, amahajan [at] iitb.ac.in</p>
+        </div>
+    </footer>
+    
+
+</body>
+<script>
+
+    const func=()=>{
+        document.getElementById('extra').style.display="block";
+        
+
+    }
+    const func2=()=>{
+        document.getElementById('extra').style.display="none";
+        
+
+    }
+</script>
+</html>
