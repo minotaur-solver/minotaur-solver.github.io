@@ -87,7 +87,7 @@ body {
 .logo2 {
    display: flex;
     height: 300px;
-    width: 110px;
+    /* width: 110px; */
     margin-right: 10px;
     display: flex;
     position: absolute;
@@ -360,7 +360,7 @@ body {
     /* border: 2px solid red; */
     left: 12%;
     width: 373px;
-    height: 294px;
+    /* height: 294px; */
     position: relative;
    }
    .img img{
@@ -441,7 +441,7 @@ body {
     }
     .img{
         width:250px;
-        height:150px;
+      /*  height:150px; */
     }
     .minotaur-info {
         height: 395px;
