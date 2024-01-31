@@ -147,17 +147,20 @@
                 href="https://www.msys2.org/"> MSYS2 </a>. MSYS2 provides Linux-like tools for compiling and linking binaries.
             </p>
             
-                <p style="font-size: 18px;" >1. First install MSYS2 on Windows.</p>
-                <p style="font-size: 18px;"> 2.Then launch a Mingw-w64 64-bit shell from the MSYS2 terminal. Update the installed packages.</p>
+                <p style="font-size: 18px;" >1. Install MSYS2 on Windows.</p>
+                <p style="font-size: 18px;"> 2. Launch a MinGW 64-bit terminal
+		from the start menu. Update the installed packages.</p>
                 <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
                     pacman -Syu </p>
                     
-                <p style="font-size: 18px;" >3. If packages were upgraded, close the shell, again open Mingw-w64 shell and run the above command again.
+                <p style="font-size: 18px;" >3. If packages were upgraded,
+		close the shell, again open MinGW 64-bit terminal and run the above command again.
                     Keep repeating this cycle until no more updates are installed.
                 </p>
                 <p style="font-size: 18px;">4. Install additional packages for compiling C++ and Fortran as follows.</p>
                 <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
-                    pacman -S git mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkg-config wget autoconf make perl mingw-w64-x86_64-make tar
+                    pacman -S git mingw-w64-x86_64-gcc
+		    mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake cmake pkg-config wget autoconf make perl mingw-w64-x86_64-make tar ca-certificates
                 </p>
                 <p style="font-size: 18px;">5. Get Minotaur from GitHub</p>
                 <p style="background-color: #f3f4f6; padding: 10px; margin: 10px; font-size: 16px;">
@@ -179,7 +182,7 @@
                 <br>
                     cd build
                 <br>
-                    cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH=${HOME}/minotaur/third-party/ -DBUILD_SHARED_LIBS:BOOL= OFF -DUSE_FILTERSQP:BOOL= OFF ..
+                    cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH=${HOME}/minotaur/third-party/ -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF ..
                 <br>
                     make
                 <br>
