@@ -27,7 +27,7 @@
                     <button class="documentation-button">Home</button>
                 </a>
                 <a href="downloads.html">
-                    <button style="color: rgb(0, 0, 0)"; class="documentation-button">Download</button>
+                    <button style="color: rgb(0, 0, 0)"; class="documentation-button">Installation</button>
                 </a>
                 <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">
                 <button class="documentation-button">Documentation</button>
@@ -46,7 +46,10 @@
     <section class="links" id="extra">
         <ul>
             <li>
-                <a href="downloads.html">Download</a>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="downloads.html">Installation</a>
             </li>
             <li>
                 <a href="http://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Documentation</a>
@@ -182,7 +185,7 @@
                 <br>
                     cd build
                 <br>
-                    cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH=${HOME}/minotaur/third-party/ -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF ..
+                cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH=${HOME}/minotaur/third-party/ -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF ..
                 <br>
                     make
                 <br>

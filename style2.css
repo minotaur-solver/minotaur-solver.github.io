@@ -1,54 +1,54 @@
 .mainclass{
-    display: flex;
-    flex-direction: left;
+  display: flex;
+  flex-direction: left;
 }
 @media only screen and (max-width:898px){
-    .mainclass{
-        flex-direction: column;
-        
-    }
+  .mainclass{
+      flex-direction: column;
+      
+  }
 }
 
 .conf{
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .compiling-content p{
-    font-size: 17px;
+  font-size: 17px;
 } 
 .license{
-    padding-right:40px;
+  padding-right:40px;
 }
 
 /* Button styles */
 .custom-button {
-    margin: 5px 0;
-    width: auto;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    height: 35px;
+  margin: 5px 0;
+  width: auto;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+}
+
+/* Responsive adjustments for custom buttons */
+.download-buttons,
+.source-code-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 1000px) {
+  .custom-button {
+    margin: 0 5px;
   }
-  
-  /* Responsive adjustments for custom buttons */
-  .download-buttons,
-  .source-code-buttons {
-    display: flex;
-    justify-content: center;
-  }
-  
-  @media only screen and (max-width: 1000px) {
-    .custom-button {
-      margin: 0 5px;
+}
+
+@media only screen and (min-width: 1001px) {
+  .custom-button {
+      margin: 0 15px;
+      width: 170px;
     }
-  }
-  
-  @media only screen and (min-width: 1001px) {
-    .custom-button {
-        margin: 0 15px;
-        width: 170px;
-      }
-  }
-   
+}
+ 

@@ -21,6 +21,10 @@ body {
 
 }
 
+button:hover{
+    background-color: rgb(55, 49, 241);
+}
+
 .nav-buttons {
     display: flex;
     position: absolute;
@@ -54,6 +58,9 @@ body {
 
 
 /*Section 2 For Minotaur Content*/
+.web{
+    font-size: 45px;
+}
 
 .minotaur-info {
     height: 300px;
@@ -65,6 +72,7 @@ body {
 .minotaur-content{
     margin-left: 50px;
     color :black;
+    width:70%;
     font-size: 35;
     position: relative;
     top: 30%;
@@ -119,7 +127,7 @@ body {
 }
 .hamburger .line{
     width: 23px;
-    height: 6px;
+    height: 2px;
     margin-top: 2px;
     color: white;
     background-color: white;
@@ -298,6 +306,13 @@ body {
     margin-left: 25px;
     margin-right: 25px;
 }
+.logo,
+.logo2 {
+    /* Ensure there's no border, outline, or box shadow */
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
 @media screen and  (max-width: 991px){
     
 }
@@ -306,12 +321,12 @@ body {
 
 @media only screen and (max-width: 1356px){
     .minotaur-content {
-    margin-left: 9%;
+    margin-left: 5%;
     color: black;
     font-size: 35;
     position: relative;
     top: 17%;
-    width: 44%;
+    width: 54%;
     }
 
 }
@@ -353,13 +368,15 @@ body {
     right:117mm
     }
     .logo3{
-        display:block;
-        margin-top: -191px;
+        display: block;
+        margin-top: -164px;
+        align-items: center;
+        text-align: center;
     }
    .img{
     /* border: 2px solid red; */
     /* left: 12%; */
-    /* width: 373px */;
+    /* width: 373px */
     height: 294px;
     position: relative;
    }
@@ -386,13 +403,16 @@ body {
 }
 @media only screen and (max-width:398px){
     .logo3{
-        margin-top:-235px;
+        margin-top:-207px;
     }
     .minotaur-info {
         height: 651px;
     }
+    .minotaur-content{
+        top:47%;
+    }
 }
-@media only screen and (max-width:365px){
+@media only screen and (max-width:440px){
     .img{
         /* width: 290px; */
         height: 200px;
@@ -431,36 +451,76 @@ body {
         margin-left: 12px;
     }
     .minotaur-info{
-        padding-bottom:70px;
+        padding-bottom:3px;
     }
 }
 
 @media only screen and (max-width:329px){
     .logo3{
-        margin-top:-280px;
+        margin-top:-213px;
     }
     .img{
-        width:250px;
+        width:242px;
       /*  height:150px; */
+    }
+    .img{
+        width:235px;
+        height:114px;
     }
     .minotaur-info {
         height: 395px;
-        padding-bottom:204px;
+        padding-bottom:154px;
+    }
+    .minotaur-content h1 {
+        text-align: center;
+        font-size: 37px;
     }
 }
 
-@media only screen and (max-width:329px){
-.img{
-    width:172px;
-    height:114px;
-}
-
-}
-@media only screen and (max-width:244px){
+@media only screen and (max-width:284px){
     .logo3 {
-        margin-top: -334px;
+        margin-top: -265px;
+    }
+}
+@media only screen and (max-width:259px){
+    .logo3 {
+        margin-left:-14px;
         width: 45%;
     }
 
+}
+
+@media only screen and (max-width:244px){
+    .logo3 {
+        margin:auto 2%;
+        margin-top: -334px;
+        width: 45%;
+    }
+    .img {
+        width: 163px;
+        height: 114px;
+    }
+
+}
+@media only screen and (max-width:202px){
+    .logo3{
+        margin-top: -397px;
+    }
+    .minotaur-info {
+        height: 395px;
+        padding-bottom: 216px;
+    }
+}
+@media only screen and (max-width:180px){
+    .logo3{
+        display: none;
+    }
+    .minotaur-content {
+        top: 7%;
+    }
+    .minotaur-content h1 {
+        text-align: center;
+        font-size: 30px;
+    }
 }
 
