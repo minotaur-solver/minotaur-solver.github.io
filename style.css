@@ -154,6 +154,7 @@ button:hover{
 }
 .logo3{
     display:none;
+    border: none;
 }
 
 .features {
@@ -306,13 +307,6 @@ button:hover{
     margin-left: 25px;
     margin-right: 25px;
 }
-.logo,
-.logo2 {
-    /* Ensure there's no border, outline, or box shadow */
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
 @media screen and  (max-width: 991px){
     
 }
@@ -401,17 +395,7 @@ button:hover{
         left:-5%;
     }
 }
-@media only screen and (max-width:398px){
-    .logo3{
-        margin-top:-207px;
-    }
-    .minotaur-info {
-        height: 651px;
-    }
-    .minotaur-content{
-        top:47%;
-    }
-}
+
 @media only screen and (max-width:440px){
     .img{
         /* width: 290px; */
@@ -452,7 +436,30 @@ button:hover{
     }
     .minotaur-info{
         padding-bottom:3px;
+       
     }
+  
+    .minotaur-content{
+        top:51%;
+    }
+}
+@media only screen and (max-width:398px){
+    .logo3{
+        margin-top:-207px;
+        border: none;
+    }
+    .minotaur-info {
+        height: 445px;
+    }
+    .minotaur-content{
+        top: 55%;
+    }
+}
+@media only screen and (max-width:347px){
+    h1.web{
+        font-size: 37px;
+    }
+
 }
 
 @media only screen and (max-width:329px){
@@ -466,39 +473,63 @@ button:hover{
     .img{
         width:235px;
         height:114px;
+        /* border:none; */
     }
     .minotaur-info {
-        height: 395px;
+        height: 282px;
         padding-bottom:154px;
     }
     .minotaur-content h1 {
         text-align: center;
         font-size: 37px;
     }
+    .minotaur-content {
+        top: 68%;
+    }
 }
 
-@media only screen and (max-width:284px){
+@media only screen and (max-width:285px){
     .logo3 {
-        margin-top: -265px;
+        margin-top: -229px;
+    }
+    h1.web{
+        font-size: 32px;
     }
 }
 @media only screen and (max-width:259px){
     .logo3 {
-        margin-left:-14px;
+        margin-left:-3px;
         width: 45%;
     }
 
+}
+@media only screen and (max-width:247px){
+    h1.web {
+        font-size: 26px;
+    }
 }
 
 @media only screen and (max-width:244px){
     .logo3 {
         margin:auto 2%;
-        margin-top: -334px;
+        margin-top: -289px;
         width: 45%;
     }
     .img {
-        width: 163px;
+        width: 204px;
         height: 114px;
+    }
+    h1.web {
+        font-size: 27px;
+    }
+    .minotaur-content {
+        top: 57%;
+    }
+
+}
+@media only screen and (max-width:229px){
+    .minotaur-info{
+        height: 368px;
     }
 
 }
