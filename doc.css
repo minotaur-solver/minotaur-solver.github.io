@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+/* header {
+    background: #333;
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+} */
+.links ul li {
+    margin-top: -1px; /* Adjust this value to reduce the spacing */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.code-block {
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.code-block code {
+    font-family: "Courier New", Courier, monospace;
+    color: #333333;
+    display: block;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.copy-button:hover {
+    background: #555;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-link {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #3b82f6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-link:hover {
+    background: #555;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 98%;
+        padding: 5px;
+    }
+}
+/* Add this to doc.css */
+.show {
+    display: block;
+}
+
+/* Hide the extra section by default */
+#extra {
+    display: none;
+}

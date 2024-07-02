@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minotaur Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="doc.css">
+    <style>
+        .highlight {
+            color: blue;
+            text-decoration: underline;
+        }
+        .clickable-link {
+            color: inherit;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo"></div>
+            <div class="nav-buttons">
+                <div class="hamburger" onclick="toggleMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <a href="index.html">
+                    <button class="documentation-button">Home</button>
+                </a>
+                <a href="downloads.html">
+                    <button class="documentation-button">Installation</button>
+                </a>
+                <a href="doc.html">
+                    <button style="color: rgb(0, 0, 0);"  class="documentation-button">User Guide</button>
+                    </a>
+                    <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">
+                        <button class="documentation-button">Developers Docs</button>
+                    </a>
+                <!-- <a href="doc.html">
+                    <button class="documentation-button" style="color: rgb(0, 0, 0);">Documentation</button>
+                </a> -->
+                <a href="https://www.github.com/minotaur-solver/minotaur">
+                    <button class="documentation-button">Source Code</button>
+                </a>
+            </div>
+        </div>
+    </header>
+    <section class="links" id="extra">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="downloads.html">Installation</a></li>
+            <li>
+                <a href="doc.html">User Guide</a>
+            </li>
+            <li>
+                <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Developers Docs</a>
+            </li>
+            <!-- <li><a href="doc.html">Documentation</a></li> -->
+            <li><a href="https://www.github.com/minotaur-solver/minotaur">Source Code</a></li>
+            <li onclick="toggleMenu()"><a href="#">Close</a></li>
+        </ul>
+    </section>
+
+    <div class="container">
+
+        <section id="user-documentation">
+            <h2>User Documentation</h2>
+            <p>
+                Example usage in <a href="#setup"><span class="highlight">Google Colab</span></a> with Pyomo<br>
+                Example usage in <a href="#minotaur-jupyter"><span class="highlight">Jupyter Notebook</span></a> with Pyomo<br>
+                Example usage in <a href="#minotaur-ampl"><span class="highlight">AMPL</span></a> with local installation
+            </p>
+        </section>
+            
+            <p>Let's take an example of an optimization problem:</p>
+            <div class="code-block">
+                <code>
+Maximize 5.5x<sub>1</sub> + 2.1x<sub>2</sub><br>
+Subject to:<br>
+    -x<sub>1</sub> + x<sub>2</sub> <= 2<br>
+    8x<sub>1</sub> + 2x<sub>2</sub> <= 17<br>
+    x<sub>1</sub>, x<sub>2</sub> are integers
+                </code>
+            </div>
+            <section id="setup">
+                <h3>1 Set up for Google Colab environment</h3>
+                <h4> 1.1 Download and set up Minotaur in your Google Colab environment:</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('setup-code')">Copy</button>
+                    <code id="setup-code">
+!rm -f minotaur-0.4.1-linux-x86_64.tar.gz
+!wget -nc https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.4.1-linux-x86_64.tar.gz
+!tar -zxf minotaur-0.4.1-linux-x86_64.tar.gz
+!rm -f mbin
+!ln -s minotaur-0.4.1-linux-x86_64/bin mbin
+                    </code>
+                </div>
+                <p>If you prefer to use the latest nightly (unstable) version of Minotaur, use the following commands instead:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('nightly-code')">Copy</button>
+                    <code id="nightly-code">
+!rm -f minotaur-nightly.tar.gz
+!wget -nc https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-nightly.tar.gz
+!tar -zxf minotaur-nightly.tar.gz
+!rm -f mbin
+!ln -s minotaur-nightly mbin
+                    </code>
+                </div>
+            </section>
+
+            <section id="installing-pyomo">
+                <h4>1.2 Installing Pyomo</h4>
+                <p>Install the Pyomo package using pip:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('install-pyomo')">Copy</button>
+                    <code id="install-pyomo">
+!pip install -q pyomo
+                    </code>
+                </div>
+            </section>
+
+            <section id="creating-model">
+                <h4>1.3 Creating a Model</h4>
+                <p>Here's how you can create this model in Pyomo:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('create-model')">Copy</button>
+                    <code id="create-model">
+from pyomo.environ import *
+
+model = ConcreteModel()
+model.x1 = Var(within=Integers)
+model.x2 = Var(within=Integers)
+model.obj = Objective(expr=5.5*model.x1 + 2.1*model.x2, sense=maximize)
+model.con1 = Constraint(expr=-model.x1 + model.x2 <= 2)
+model.con2 = Constraint(expr=8*model.x1 + 2*model.x2 <= 17)
+                    </code>
+                </div>
+            </section>
+
+            <section id="solving-model">
+                <h4>1.4 Solving the Model</h4>
+                <p>Use one of Minotaur's solvers (mbnb, mqg, mglob, mmultistart) to solve the model. Here, we use the 'mglob' solver:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('solve-model')">Copy</button>
+                    <code id="solve-model">
+mntr = SolverFactory("mglob", executable='/content/mbin/mglob')
+
+mntr.options['--log_level'] = 2
+mntr.options['--time_limit'] = 60
+mntr.options['--qp_engine'] = 'None'
+mntr.options['--nlp_engine'] = 'IPOPT'
+
+# Set tee to True if you want to see solver output
+result = mntr.solve(model, tee=False)
+                    </code>
+                </div>
+            </section>
+
+            <section id="viewing-results">
+                <p>After solving the model, you can view the results with the following commands:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('view-results')">Copy</button>
+                    <code id="view-results">
+print("Solver termination status:", result.solver.status)
+print("Solver termination condition:", result.solver.termination_condition)
+print("Best solution value:", model.obj())
+print("Best bound: ", result.problem.lower_bound)
+print("Solver time:", result.solver.time)
+                    </code>
+                </div>
+            </section>
+
+            <section id="minotaur-jupyter">
+                <h3>2 Set up for Jupyter Notebook</h3>
+                <h4>2.1 Download, extract Minotaur binaries and install Pyomo:</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('jupyter-setup')">Copy</button>
+                    <code id="jupyter-setup">
+# First, download and extract Minotaur binaries
+!wget -nc https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.4.1-linux-x86_64.tar.gz
+!tar -zxf minotaur-0.4.1-linux-x86_64.tar.gz
+!ln -s minotaur-0.4.1-linux-x86_64/bin mbin
+
+# Install Pyomo
+!pip install -q pyomo
+                    </code>
+                </div>
+                <h4>2.2 Create the optimization model in Pyomo:</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('jupyter-model')">Copy</button>
+                    <code id="jupyter-model">
+from pyomo.environ import *
+
+model = ConcreteModel()
+model.x1 = Var(within=Integers)
+model.x2 = Var(within=Integers)
+model.obj = Objective(expr=5.5*model.x1 + 2.1*model.x2, sense=maximize)
+model.con1 = Constraint(expr=-model.x1 + model.x2 <= 2)
+model.con2 = Constraint(expr=8*model.x1 + 2*model.x2 <= 17)
+                    </code>
+                </div>
+                <h4>2.3 Solve the model using Minotaur:</h4>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('jupyter-solve')">Copy</button>
+                    <code id="jupyter-solve">
+mntr = SolverFactory("mglob", executable='./mbin/mglob')
+
+mntr.options['--log_level'] = 2
+mntr.options['--time_limit'] = 60
+#mntr.options['--qp_engine'] = 'None'
+#mntr.options['--nlp_engine'] = 'IPOPT'
+
+result = mntr.solve(model, tee=True)
+                    </code>
+                </div>
+                <p>View the results:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('jupyter-results')">Copy</button>
+                    <code id="jupyter-results">
+print("Solver termination status:", result.solver.status)
+print("Solver termination condition:", result.solver.termination_condition)
+print("Best solution value:", model.obj())
+print("Best bound: ", result.problem.lower_bound)
+print("Solver time:", result.solver.time)
+                    </code>
+                </div>
+            </section>
+
+            <section id="minotaur-ampl">
+                <h3>3 Set up for AMPL</h3>
+                <p>To use Minotaur with AMPL, follow the steps below:</p>
+                <p> First, ensure you have Minotaur and AMPL installed on your system. If minotaur not installed then download precompiled binaries from download section according to your machine. </p>
+                <p>Extract the download tar/zip, Open the extracted folder and navigate to bin folder.</p>
+                <p>Copy the four binaries/executables from bin folder to main Ampl folder that conatins other executables.</p>
+                <p>Create an optimization model in AMPL:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('ampl-model')">Copy</button>
+                    <code id="ampl-model">
+# AMPL Model (example.mod)
+var x1 integer;
+var x2 integer;
+
+maximize obj: 5.5*x1 + 2.1*x2;
+subject to con1: -x1 + x2 <= 2;
+subject to con2: 8*x1 + 2*x2 <= 17;
+
+display x1, x2, obj;
+                    </code>
+                </div>
+                <p>Then, use the following AMPL commands to set up and solve the model with Minotaur:</p>
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyToClipboard('ampl-setup')">Copy</button>
+                    <code id="ampl-setup">
+# AMPL Commands here we are using mglob solver
+model example.mod;
+
+#If minotaur already downloaded in your system then use following command
+option solver "/path/to/minotaur/build/bin/mglob";
+
+#If binaries/executables are in Ampl main folder 
+option solver mglob
+
+#To solve the problem 
+solve;
+
+#To see output 
+display x1, x2, obj;
+                    </code>
+                </div>
+                <p>Replace <code>/path/to/minotaur/build/bin/mglob</code> with the actual path to your Minotaur executable.</p>
+            </section>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2008 - 2024 The Minotaur Team.</p>
+    </footer>
+
+<script>
+    const toggleMenu = () => {
+        const extra = document.getElementById('extra');
+        if (extra.style.display === "block") {
+            extra.style.display = "none";
+        } else {
+            extra.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>

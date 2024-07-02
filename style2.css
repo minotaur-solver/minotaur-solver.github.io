@@ -34,7 +34,7 @@
 
 /* Responsive adjustments for custom buttons */
 .download-buttons,
-.source-code-buttons {
+.source-code-buttons{
   display: flex;
   justify-content: center;
 }
