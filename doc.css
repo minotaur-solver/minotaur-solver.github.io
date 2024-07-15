@@ -55,14 +55,16 @@ body {
     background: #555;
 }
 
+/*
 footer {
     background: #333;
     color: #fff;
-    text-align: center;
+    text-align: ;
     padding: 10px 0;
     width: 100%;
     margin-top: 20px;
 }
+*/
 
 .btn-link {
     display: inline-block;
