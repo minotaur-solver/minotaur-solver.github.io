@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation — Minotaur Optimization Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+ <header>
+    <div class="container nav-bar">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <img src="Minotaur.jpg" alt="Minotaur Logo" class="minotaur-logo-img">
+          <span class="logo-text">Minotaur</span>
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="installation.html" class="active">Installation</a>
+        <a href="examples.html">Examples</a>
+        <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html" target="_blank">Developer Docs</a>
+        <a href="options.html">Options</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact Us</a>
+        <!-- <a href="https://github.com/coin-or/minotaur" target="_blank" class="btn-github">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a> -->
+      </nav>
+    </div>
+  </header>
+  
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <section>
+      <h2>1. Pre-compiled Binaries</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Linux x86_64</h3>
+          <p>Version 0.4.1 (Stable) • Statically linked binary archive (.tar.gz)</p>
+          <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.4.1-linux-x86_64.tar.gz" class="btn btn-primary">Download Linux Binary</a>
+        </div>
+        <div class="card">
+          <h3>Windows 64 bit</h3>
+          <p>Version 0.4.1 (Stable) • Statically linked binary zip file</p>
+          <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.4.1-win64.zip" class="btn btn-primary">Download Windows Binary</a>
+        </div>
+         <div class="card">
+          <h3>macOS Apple Silicon (arm64)</h3>
+          <p>Version 0.4.1 (Stable) </p>
+          <a href="" class="btn btn-primary">To be released</a>
+        </div>
+       
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Compiling on Linux</h2>
+      
+      <h3>A. Install Prerequisites</h3>
+      <p>On Debian or Ubuntu systems, install the required compilers and build tools:</p>
+      <pre><code>sudo apt-get update
+sudo apt-get install -y wget g++ gfortran make cmake pkg-config libatlas-base-dev</code></pre>
+
+      <h3>B. Build Third-Party Dependencies</h3>
+      <p>Clone the repository and build the bundled sub-solvers (ASL, Clp, Ipopt, FilterSQP):</p>
+      <pre><code>git clone https://github.com/coin-or/minotaur.git
+cd minotaur/third-party
+./build_third_party -j 4
+cd ..</code></pre>
+
+      <h3>C. Configure &amp; Build</h3>
+      <pre><code>mkdir -p build &amp;&amp; cd build
+cmake .. -DTHIRD_PARTY_PATH:PATH=../third-party/
+
+make install -j 4</code></pre>
+<p>Replace -j 4 by number of CPUs on your computer</p>
+    </section>
+
+    <section>
+      <h2>3. Compiling on macOS (Apple Silicon arm64)</h2>
+      
+      <h3>A. Toolchain Setup with Homebrew GCC</h3>
+      <p><em>Note: Build Minotaur using Homebrew GCC rather than AppleClang to prevent dynamic casting C++ ABI crashes.</em></p>
+      <pre><code>brew install cmake make pkg-config gcc</code></pre>
+
+      <h3>B. Build Third-Party Dependencies</h3>
+      <pre><code>cd third-party
+./clean_third_party || true
+./build_third_party -j "$(sysctl -n hw.ncpu)" -C -O
+cd ..</code></pre>
+
+      <h3>C. Configure &amp; Build via Homebrew GCC</h3>
+      <pre><code>rm -rf build &amp;&amp; mkdir -p build &amp;&amp; cd build
+cmake .. \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_C_COMPILER="$(brew --prefix)/bin/gcc-15" \
+  -DCMAKE_CXX_COMPILER="$(brew --prefix)/bin/g++-15" \
+  -DCMAKE_Fortran_COMPILER="$(brew --prefix)/bin/gfortran-15"
+cmake --build . -j "$(sysctl -n hw.ncpu)"</code></pre>
+    </section>
+
+    <section>
+      <h2>4. Compiling on Windows (MSYS2)</h2>
+     <p> Minotaur can be compiled using MSYS2 . MSYS2 provides Linux-like tools for compiling and linking binaries. Install MSYS2 on Windows. Next, launch a MinGW 64-bit terminal from the start menu. Update the installed packages.</p>
+      
+      <pre><code>pacman -Syu
+pacman -S git mingw-w64-x86_64-gcc mingw-w64-x86_64-gcc-fortran mingw-w64-x86_64-cmake pkg-config wget autoconf make perl tar ca-certificates
+
+git clone https://github.com/coin-or/minotaur.git
+cd minotaur/third-party
+./build_third_party -j 4
+cd ..
+mkdir build &amp;&amp; cd build
+cmake -G "MSYS Makefiles" -DTHIRD_PARTY_PATH=${HOME}/minotaur/third-party/ -DBUILD_SHARED_LIBS:BOOL=OFF -DUSE_FILTERSQP:BOOL=OFF ..
+make
+make install -j 4</code></pre>
+<p>You should now see several binaries in the bin/ folder of the build directory. Each of them is a solver. Library files should be seen in the lib/ folder of the build directory. The above procedure installs Minotaur without FilterSQP and BQPD solvers.</p>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+   <footer>
+    <div class="container">
+      <p>&copy; 2026 Minotaur Toolkit Contributors.</p>
+      <p>A <a href="https://www.coin-or.org" target="_blank">COIN-OR</a> Open Source Project for Mixed-Integer Nonlinear Optimization.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

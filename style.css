@@ -1,618 +1,327 @@
-* {
-    margin: 0;
-    font-family: Arial;
-    border: border-box;
-    
-}
+/* ==========================================================================
+   MINOTAUR SOLVER WEBSITE STYLESHEET
+   Clean, simple academic & open-source software site layout.
+   ========================================================================== */
 
+/* Base Page Setup & Font */
 body {
-    padding: 0;
-    background-color: #ebdbd3;
-    overflow-x: hidden;
-    
-    
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar {
-    height: 53px;
-    background-color: #0f1111;
-    color: white;
-    position: relative; /* Make the navbar relative to allow absolute positioning */
-
+/* Page Container */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-button:hover{
-    background-color: rgb(55, 49, 241);
+/* --------------------------------------------------------------------------
+   HEADER & NAVIGATION BAR
+   -------------------------------------------------------------------------- */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.nav-buttons {
-    display: flex;
-    position: absolute;
-    top: 50%; /* Vertically center the buttons */
-   margin-left:14px; /* Add 40mm space to the right of the navbar */
-    transform: translateY(-50%); /* Adjust for vertical centering */
-}
-/* For documentation*/
-
-.download-button,
-.documentation-button {
-    padding: 8px 15px;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px; /* Add some space between the buttons */
-    height: 35px;
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
 }
 
+/* Left Brand: Minotaur Logo & Title */
+.nav-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-/* To add Logo
 .logo {
-    background-image: url("Minotaur.jpg");
-    background-size: cover;
-    height: 100px;
-    width: 86px;
-}
-*/
-
-
-/*Section 2 For Minotaur Content*/
-.web{
-    font-size: 45px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
-.minotaur-info {
-    height: 300px;
-    background-color: #e9eeee;
-    color: rgb(31, 25, 25);
-    position: relative; /* Make the navbar relative to allow absolute positioning */
+.minotaur-logo-img {
+  height: 44px;
+  width: auto;
+  vertical-align: middle;
+  object-fit: contain;
 }
 
-.minotaur-content{
-    margin-left: 50px;
-    color :black;
-    width:70%;
-    font-size: 35;
-    position: relative;
-    top: 30%;
-    
-}
-.code-button {
-    padding: 8px 15px;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px; /* Add some space between the buttons */
-    position: absolute;
-    border: 3px solid rgb(4, 4, 4);
-    margin-left: 210px;
- 
+.logo-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: -0.2px;
 }
 
-.logo2 {
-   display: flex;
-    height: 300px;
-    width: 110px; 
-    margin-right: 10px;
-    display: flex;
-    position: absolute;
-    top: 0.1%; /* Vertically center the buttons */
-    right: 60mm; /* Add 40mm space to the right of the navbar */
+/* Right Navigation Links */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
 }
 
-/*Section 3 Features and Solver*/
-
-.features-solvers {
-    display: flex;
-    justify-content: space-between;
-    background-color: #e9eeee;
-    padding: 20px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Adding shadow to the section */
-    margin-top: 30px;
+.nav-links a {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-.features, .solvers {
-    flex-basis: 50%;
-    display: flex;
+.nav-links a:hover, .nav-links a.active {
+  color: #0284c7;
+  font-weight: 600;
+}
+
+.btn-github {
+  background-color: #f8fafc;
+  color: #0f172a !important;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+}
+
+.btn-github:hover {
+  background-color: #e2e8f0;
+}
+
+/* --------------------------------------------------------------------------
+   HERO / BANNER WITH RIGHT-SIDE LOGO (SIDE BY SIDE)
+   -------------------------------------------------------------------------- */
+.hero {
+  background-color: #ffffff;
+  /* border-bottom: 1px solid #e5e7eb; */
+  padding: 40px 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-text h1 {
+  font-size: 2.1rem;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+
+.hero-logo-box {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 3px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #0369a1;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+}
+
+.btn-secondary:hover {
+  background-color: #f3f4f6;
+}
+
+/* --------------------------------------------------------------------------
+   CONTENT SECTIONS & CARDS
+   -------------------------------------------------------------------------- */
+section {
+  padding: 35px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #0284c7;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.12rem;
+  color: #1e293b;
+  margin-top: 15px;
+  margin-bottom: 6px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+a {
+  color: #0284c7;
+}
+
+/* Content Cards */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 18px;
+  margin-bottom: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* Code Blocks */
+pre {
+  background-color: #0f172a;
+  color: #f8fafc;
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: "Fira Code", Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+code {
+  font-family: "Fira Code", Monaco, Consolas, monospace;
+}
+
+/* Syntax Highlighting */
+.comment  { color: #94a3b8; font-style: italic; }
+.keyword  { color: #f43f5e; }
+.string   { color: #34d399; }
+.number   { color: #fbbf24; }
+.function { color: #38bdf8; }
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background-color: #f8fafc;
+  color: #6b7280;
+  font-size: 0.85rem;
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 5px 0;
+  color: #6b7280;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .nav-bar {
     flex-direction: column;
-    align-items: center; /* Center the content horizontally */
-    padding: 20px;
-    border: 1px solid #d1d5db; /* Adding a border to the box */
-    border-radius: 20px; /* Rounded corners for the box */
-    background-color: #e4e6df; /* Background color for the box */
-
-}
-.hamburger .line{
-    width: 23px;
-    height: 2px;
-    margin-top: 2px;
-    color: white;
-    background-color: white;
-    
-}
-.links{
-    background-color: black;
-    display:none;
-    position: absolute;
-    width: 100%;
-    top: 53px; /* Adjust based on your navbar height */
-    left: 0;
-    z-index: 1;
-    padding: 10px 0;
-}
-.links ul {
-    padding: -10px;
-    margin: -20px;
-    list-style: none;
-    text-align: left;
-}
-.links ul li{
-    margin-top:6px;  
-    list-style: none;
-}
-.links ul li a{
-    text-decoration: none;
-    color:white;
-
-}
-.links ul li a:hover{
-    color:red;
-}
-.hamburger{
-    display: none;
-    cursor: pointer;
-}
-.logo3{
-    display:none;
-    border: none;
-}
-
-.features {
-    margin-right: 10px; /* Add right margin to create distance between boxes */
-    margin-top: 2px;
-}
-
-.features h2, .solvers h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.features ul, .solvers ul {
-    font-size: 20px;
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
-
-.solvers p {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-
-/*For Footer justify-content: space-evenly;*/
-.footer {
-    display: flex;
-    margin-block-end: 20px;
-    
-    background-color: #0f1111; /* Same background color as the header */
-    color: white;
-    padding: 20px;
-    position: relative;
-    top:20px;
-}
-
-.footer h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.footer p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-.footer a {
-    color: rgb(209, 137, 137);
-}
-
-.license{
-    margin-left:60px;
-}
-
-/* For Downloads and Source Code Sections */
-
-.downloads-info {
-    background-color: #ebdbd3;
-    align-content: center;
-    color: rgb(31, 25, 25);
-    padding: 20px;
-    display: flex;
-    justify-content: space-between; /* Distribute content evenly between boxes */
-}
-
-.downloads-content, .source-code-content {
-    background-color: #e9eeee;
-    flex-basis: 35%; /* Set the width of the boxes */
-    padding: 20px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-   
-    margin: 15px; /* Add margin between the boxes */
-}
-
-.downloads-content h1, .source-code-content h1 {
-    font-size: 45px;
-    text-align: center;
-}
-
-.downloads-content p, .source-code-content p {
-    font-size: 15px;
-    text-align:left;
-}
-
-.download-buttons, .source-code-buttons {
-    display: flex;
-   
-    margin-top: 20px; /* Add some space between the buttons and the text */
-}
-
-.download-button, .source-code-button {
-    padding: 8px 15px;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 0 5px; /* Add space between the buttons */
-}
-
-
-
-/* For Compiling and Running Sections */
-
-.compiling-info {
-    background-color: #ebdbd3;
-   
-    color: rgb(31, 25, 25);
-    padding: 0px 15px;
-    
-    flex-wrap: wrap; /* Allow content to wrap when screen size is small */
-    justify-content: space-between; /* Distribute content evenly between boxes */
-}
-
-.running-info {
-    background-color: #e9eeee;
-    color: rgb(31, 25, 25);
-    padding: 20px;
-    margin-top: 20px; /* Add some space between the two sections */
-}
-
-.compiling-content, .running-info {
-    background-color: #e4e6df; 
-    flex-basis: 45%; /* Set the width of the boxes */
-    padding: 20px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    margin: 10px; /* Add margin between the boxes */
-}
-
-.compiling-content h1, .running-info h1 {
-    font-size: 45px;
-    text-align: center;
-}
-
-.compiling-content p, .running-info p {
-    font-size: 20px;
-    text-align: left;
-}
-
-.compiling-content pre, .running-info pre {
-    font-size: 14px;
-    background-color: #f3f4f6;
-    padding: 10px;
-    margin: 10px;
-}
-.running-info {
-    margin-left: 25px;
-    margin-right: 25px;
-}
-@media screen and  (max-width: 991px){
-    
-}
-
-
-
-@media only screen and (max-width: 1356px){
-    .minotaur-content {
-    margin-left: 5%;
-    color: black;
-    font-size: 35;
-    position: relative;
-    top: 17%;
-    width: 54%;
-    }
-
-}
-@media only screen and (max-width:833px){
-    .navbar{
-        height:60px;
-    }
-    .documentation-button{
-        height:43px;
-        
-    }
-    .minotaur-info {
-        height: 534px;
-    }
-    .minotaur-content {
-        margin-left: 1%;
-        color: black;
-        font-size: 35;
-        position: relative;
-        top: 62%;
-        width: 100%;
-    }
-    .logo2{
-        top: 3.1%;
-   
-    right:117mm
-    }
-    .minotaur-content h1{
-        text-align: center;
-    }
-    
-}
-
-@media only screen and (max-width:685px){
-    .logo2{
-        display: none;
-   
-    right:117mm
-    }
-    .logo3{
-        display: block;
-        margin-top: -164px;
-        align-items: center;
-        text-align: center;
-    }
-   .img{
-    /* border: 2px solid red; */
-    /* left: 12%; */
-    /* width: 373px */
-    height: 294px;
-    position: relative;
-   }
-   .img img{
-    /* width:100%; */
-    height:100%; 
-   }
-    .features-solvers{
-        flex-direction: column;
-    }
-    .features{
-        margin-bottom:33px;
-    }
-    .license{
-        margin-left:-5px;
-    }
-}
-@media only screen and (max-width:590px){
-    .logo2{
-        display: none;
-   
-    right:117mm
-    }
-    .logo3{
-        display: block;
-        margin-top: -164px;
-        align-items: center;
-        text-align: center;
-    }
-   .img{
-    /* border: 2px solid red; */
-    /* left: 12%; */
-    /* width: 373px */
-    height: 294px;
-    position: relative;
-   }
-   .img img{
-    /* width:100%; */
-    height:100%; 
-   }
-    .features-solvers{
-        flex-direction: column;
-    }
-    .features{
-        margin-bottom:33px;
-    }
-    .license{
-        margin-left:-5px;
-    }
-    .hamburger{
-        display:block;
-
-    }
-    .nav-buttons a{
-        display: none;
-    }
-    .links{
-       
-        margin-top:-6px;
-        height:140px;
-    }
-    .links ul{
-        margin-left: -27px;
-    position: relative;
-    top: 19px;
-    }
-}
-@media only screen and (max-width:456px){
-    .img{
-        left:-5%;
-    }
-    
-}
-
-@media only screen and (max-width:440px){
-    .img{
-        /* width: 290px; */
-        height: 200px;
-        border: 2px solid;
-        margin-left:12%;
-    }
-    .hamburger{
-        display:block;
-
-    }
-    .nav-buttons a{
-        display: none;
-    }
-    .links{
-       
-        margin-top:-6px;
-        height:140px;
-    }
-    .links ul{
-        margin-left: -27px;
-    position: relative;
-    top: 19px;
-    }
-    .footer{
-        display: flex;
-    margin-block-end: 20px;
-    background-color: #0f1111;
-    color: white;
-    padding: 20px;
-        flex-direction: column;
-        position: relative;
-    top: 20px;
-    
-    }
-    .license {
-        margin-left: 12px;
-    }
-    .minotaur-info{
-        padding-bottom:3px;
-       
-    }
+    gap: 12px;
+  }
   
-    .minotaur-content{
-        top:51%;
-    }
-}
-@media only screen and (max-width:398px){
-    .logo3{
-        margin-top:-207px;
-        border: none;
-    }
-    .minotaur-info {
-        height: 445px;
-    }
-    .minotaur-content{
-        top: 55%;
-    }
-}
-@media only screen and (max-width:347px){
-    h1.web{
-        font-size: 37px;
-    }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-}
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
 
-@media only screen and (max-width:329px){
-    .logo3{
-        margin-top:-213px;
-    }
-    .img{
-        width:242px;
-      /*  height:150px; */
-    }
-    .img{
-        width:235px;
-        height:114px;
-        /* border:none; */
-    }
-    .minotaur-info {
-        height: 282px;
-        padding-bottom:154px;
-    }
-    .minotaur-content h1 {
-        text-align: center;
-        font-size: 37px;
-    }
-    .minotaur-content {
-        top: 68%;
-    }
+  .hero-text {
+    text-align: center;
+  }
 }
-
-@media only screen and (max-width:285px){
-    .logo3 {
-        margin-top: -229px;
-    }
-    h1.web{
-        font-size: 32px;
-    }
-}
-@media only screen and (max-width:259px){
-    .logo3 {
-        margin-left:-3px;
-        width: 45%;
-    }
-
-}
-@media only screen and (max-width:247px){
-    h1.web {
-        font-size: 26px;
-    }
-}
-
-@media only screen and (max-width:244px){
-    .logo3 {
-        margin:auto 2%;
-        margin-top: -289px;
-        width: 45%;
-    }
-    .img {
-        width: 204px;
-        height: 114px;
-    }
-    h1.web {
-        font-size: 27px;
-    }
-    .minotaur-content {
-        top: 57%;
-    }
-
-}
-@media only screen and (max-width:229px){
-    .minotaur-info{
-        height: 368px;
-    }
-
-}
-@media only screen and (max-width:202px){
-    .logo3{
-        margin-top: -397px;
-    }
-    .minotaur-info {
-        height: 395px;
-        padding-bottom: 216px;
-    }
-}
-@media only screen and (max-width:180px){
-    .logo3{
-        display: none;
-    }
-    .minotaur-content {
-        top: 7%;
-    }
-    .minotaur-content h1 {
-        text-align: center;
-        font-size: 30px;
-    }
-}
-
