@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Options Reference — Minotaur Optimization Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+ <header>
+    <div class="container nav-bar">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <img src="Minotaur.jpg" alt="Minotaur Logo" class="minotaur-logo-img">
+          <span class="logo-text">Minotaur</span>
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="installation.html">Installation</a>
+        <a href="examples.html">Examples</a>
+        <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html" target="_blank">Developer Docs</a>
+        <a href="options.html" class="active">Options</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact Us</a>
+        <!-- <a href="https://github.com/coin-or/minotaur" target="_blank" class="btn-github">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a> -->
+      </nav>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="container">
+    
+    <section>
+      <h2>Minotaur Solver Configuration Parameters</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="option-name">log_level</td>
+            <td class="option-type">Integer</td>
+            <td class="option-default">0</td>
+            <td>Verbosity of logs (0 = Silent, 3 = Moderate, 6 = Verbose debugging).</td>
+          </tr>
+          <tr>
+            <td class="option-name">presolve</td>
+            <td class="option-type">Boolean (0 or 1)</td>
+            <td class="option-default">1</td>
+            <td>Enables (1) or disables (0) initial problem presolving and linear reductions.</td>
+          </tr>
+          <tr>
+            <td class="option-name">show_options</td>
+            <td class="option-type">Boolean (0 or 1)</td>
+            <td class="option-default">0</td>
+            <td>Prints a list of active parameters at the start of solver execution.</td>
+          </tr>
+          <tr>
+            <td class="option-name">brancher</td>
+            <td class="option-type">String</td>
+            <td class="option-default">"rel"</td>
+            <td>Branching strategy: <code>rel</code> (reliability), <code>lex</code>, or <code>maxvio</code>.</td>
+          </tr>
+          <tr>
+            <td class="option-name">bnb_time_limit</td>
+            <td class="option-type">Double</td>
+            <td class="option-default">-1.0</td>
+            <td>Maximum runtime allowed in seconds (-1 for infinity).</td>
+          </tr>
+          <tr>
+            <td class="option-name">bnb_node_limit</td>
+            <td class="option-type">Integer</td>
+            <td class="option-default">-1</td>
+            <td>Maximum count of branch-and-bound tree nodes to evaluate.</td>
+          </tr>
+          <tr>
+            <td class="option-name">feasibility_tol</td>
+            <td class="option-type">Double</td>
+            <td class="option-default">1e-6</td>
+            <td>Tolerance value specifying acceptable constraint violations.</td>
+          </tr>
+          <tr>
+            <td class="option-name">relative_gap</td>
+            <td class="option-type">Double</td>
+            <td class="option-default">1e-4</td>
+            <td>Relative optimality gap target for branch-and-bound convergence.</td>
+          </tr>
+          <tr>
+            <td class="option-name">subproblem_solver</td>
+            <td class="option-type">String</td>
+            <td class="option-default">"clp"</td>
+            <td>Specifies subproblem LP/NLP solver package (e.g. <code>clp</code>, <code>ipopt</code>, <code>filter-sqp</code>).</td>
+          </tr>
+          <tr>
+            <td class="option-name">use_native_cgraph</td>
+            <td class="option-type">Boolean (0 or 1)</td>
+            <td class="option-default">1</td>
+            <td>Toggle the use of native C++ computational graphs for evaluating derivatives.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Minotaur Toolkit Contributors.</p>
+      <p>A <a href="https://www.coin-or.org" target="_blank">COIN-OR</a> Open Source Project for Mixed-Integer Nonlinear Optimization.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

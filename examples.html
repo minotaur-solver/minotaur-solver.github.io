@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Guide — Minotaur Optimization Toolkit</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <!-- Navigation Header -->
+ <header>
+    <div class="container nav-bar">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <img src="Minotaur.jpg" alt="Minotaur Logo" class="minotaur-logo-img">
+          <span class="logo-text">Minotaur</span>
+        </a>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="installation.html">Installation</a>
+        <a href="examples.html" class="active">Examples</a>
+        <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html" target="_blank">Developer Docs</a>
+        <a href="options.html">Options</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact Us</a>
+        <!-- <a href="https://github.com/coin-or/minotaur" target="_blank" class="btn-github">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a> -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <!-- <div class="hero">
+    <div class="container">
+      <span class="tag">Minotaur Documentation</span>
+      <h1>User Guide &amp; Code Examples</h1>
+      <p>Official step-by-step documentation for setting up and running Minotaur in Python (Google Colab &amp; Jupyter Notebooks via Pyomo) and AMPL.</p>
+    </div>
+  </div> -->
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Sub Navigation Index -->
+    <section>
+      <h2>User Documentation Index</h2>
+      <div class="card">
+        <ol style="margin: 0; padding-left: 20px;">
+          <li><a href="#python-setup"><strong>Python Setup (Google Colab &amp; Jupyter Notebook with Pyomo)</strong></a></li>
+          <li><a href="#ampl-setup"><strong>Set up for AMPL</strong></a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Combined Section 1: Python (Google Colab & Jupyter Notebook) -->
+    <section id="python-setup">
+      <h2>1. Python Setup (Google Colab &amp; Jupyter Notebook)</h2>
+
+      <div class="card">
+        <h3>1.1 Download Binaries &amp; Install Pyomo</h3>
+        
+        <p><strong>For Google Colab (Nightly Build):</strong></p>
+        <pre><code>!wget -q https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/minotaur-nightly.tar.gz
+!tar -zxf minotaur-nightly.tar.gz
+!rm -f mbin
+!ln -s minotaur-nightly mbin
+!pip install -q pyomo</code></pre>
+
+        <p style="margin-top: 15px;"><strong>For Jupyter Notebook (Stable 0.4.1 Release):</strong></p>
+        <pre><code>!wget -nc https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/bin/minotaur-0.4.1-linux-x86_64.tar.gz
+!tar -zxf minotaur-0.4.1-linux-x86_64.tar.gz
+!ln -s minotaur-0.4.1-linux-x86_64/bin mbin
+!pip install -q pyomo</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>1.2 Create Optimization Model in Pyomo</h3>
+        <p>Define your mixed-integer optimization model using Pyomo environment:</p>
+        <pre><code><span class="keyword">from</span> pyomo.environ <span class="keyword">import</span> *
+
+model = ConcreteModel()
+model.x1 = Var(within=Integers)
+model.x2 = Var(within=Integers)
+model.obj = Objective(expr=5.5*model.x1 + 2.1*model.x2, sense=maximize)
+model.con1 = Constraint(expr=-model.x1 + model.x2 &lt;= 2)
+model.con2 = Constraint(expr=8*model.x1 + 2*model.x2 &lt;= 17)</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>1.3 Solve Model using Minotaur Solver</h3>
+        <p>Use one of Minotaur's solvers (<code>mbnb</code>, <code>mqg</code>, <code>mglob</code>, <code>mmultistart</code>) to solve the model. Here, we use the <code>mglob</code> solver:</p>
+        <pre><code><span class="comment"># In Colab use '/content/mbin/mglob', in local Jupyter use './mbin/mglob'</span>
+mntr = SolverFactory(<span class="string">"mglob"</span>, executable=<span class="string">'./mbin/mglob'</span>)
+
+mntr.options[<span class="string">'--log_level'</span>] = 2
+mntr.options[<span class="string">'--time_limit'</span>] = 60
+<span class="comment"># mntr.options['--qp_engine'] = 'None'</span>
+<span class="comment"># mntr.options['--nlp_engine'] = 'IPOPT'</span>
+
+<span class="comment"># Set tee to True if you want to see verbose solver log output</span>
+result = mntr.solve(model, tee=<span class="keyword">True</span>)</code></pre>
+      </div>
+
+      <div class="card">
+        <h3>1.4 View Solution &amp; Solver Results</h3>
+        <p>After solving the model, view termination status, optimal objective value, bounds, and runtime:</p>
+        <pre><code>print(<span class="string">"Solver termination status:"</span>, result.solver.status)
+print(<span class="string">"Solver termination condition:"</span>, result.solver.termination_condition)
+print(<span class="string">"Best solution value:"</span>, model.obj())
+print(<span class="string">"Best bound: "</span>, result.problem.lower_bound)
+print(<span class="string">"Solver time:"</span>, result.solver.time)</code></pre>
+      </div>
+    </section>
+
+    <!-- Section 2: AMPL Setup -->
+    <section id="ampl-setup">
+      <h2>2. Set up for AMPL</h2>
+      <div class="card">
+        <p>To use Minotaur with AMPL, follow the steps below:</p>
+        <ol style="margin-bottom: 15px; padding-left: 20px;">
+          <li>Ensure you have Minotaur and AMPL installed on your system. If Minotaur is not installed, download the precompiled binaries from the Installation page.</li>
+          <li>Extract the downloaded <code>.tar.gz</code> archive, open the extracted folder, and navigate to the <code>bin/</code> subfolder.</li>
+          <li>Copy the four binaries/executables (<code>mbnb</code>, <code>mqg</code>, <code>mglob</code>, <code>mmultistart</code>) from the <code>bin/</code> folder to your main AMPL directory that contains the <code>ampl</code> executable.</li>
+        </ol>
+
+        <h3>Create AMPL Model (<code>example.mod</code>)</h3>
+        <pre><code><span class="comment"># AMPL Model (example.mod)</span>
+<span class="keyword">var</span> x1 integer;
+<span class="keyword">var</span> x2 integer;
+
+<span class="keyword">maximize</span> obj: 5.5*x1 + 2.1*x2;
+<span class="keyword">subject to</span> con1: -x1 + x2 &lt;= 2;
+<span class="keyword">subject to</span> con2: 8*x1 + 2*x2 &lt;= 17;
+
+<span class="keyword">display</span> x1, x2, obj;</code></pre>
+
+        <h3>AMPL Commands to Set Up &amp; Solve</h3>
+        <p>Use the following AMPL commands to set up and solve the model with Minotaur's <code>mglob</code> solver:</p>
+        <pre><code><span class="comment"># Load model file</span>
+model example.mod;
+
+<span class="comment"># If Minotaur is built/installed in a specific directory:</span>
+option solver <span class="string">"/path/to/minotaur/build/bin/mglob"</span>;
+
+<span class="comment"># If binaries/executables are in main AMPL directory:</span>
+option solver mglob;
+
+<span class="comment"># Solve the optimization problem</span>
+solve;
+
+<span class="comment"># Display output solution</span>
+display x1, x2, obj;</code></pre>
+        <p><em>Replace <code>/path/to/minotaur/build/bin/mglob</code> with the actual path to your Minotaur executable.</em></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Minotaur Toolkit Contributors.</p>
+      <p>A <a href="https://www.coin-or.org" target="_blank">COIN-OR</a> Open Source Project for Mixed-Integer Nonlinear Optimization.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

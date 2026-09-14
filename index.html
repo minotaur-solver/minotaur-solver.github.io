@@ -1,151 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minotaur Toolkit</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minotaur Toolkit — Mixed-Integer Nonlinear Optimization Solver</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <header>
-        <div class="navbar">
-        
-            <div class="logo">
-            </div>
-            
-            <div class="nav-buttons">
-                <div class="hamburger " onclick="func()" >
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                
-                </div>
-                <a href="index.html">
-                    <button style="color: rgb(0, 0, 0);" class="documentation-button">Home</button>
-                </a>
-                <a href="downloads.html">
-                    <button class="documentation-button">Installation</button>
-                </a>
-                <a href="doc.html">
-                <button class="documentation-button">User Guide</button>
-                </a>
-                <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">
-                    <button class="documentation-button">Developers Docs</button>
-                </a>
-                 
 
-            <a href="https://www.github.com/coin-or/minotaur">
-                <button class="documentation-button">Source Code</button>
-            </a>
-              
+  <!-- Navigation Header -->
+  <header>
+    <div class="container nav-bar">
+      <div class="nav-brand">
+        <a href="index.html" class="logo">
+          <img src="Minotaur.jpg" alt="Minotaur Logo" class="minotaur-logo-img">
+          <span class="logo-text">Minotaur</span>
+        </a>
+      </div>
 
+      <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="installation.html">Installation</a>
+        <a href="examples.html">Examples</a>
+        <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html" target="_blank">Developer Docs</a>
+        <a href="options.html">Options</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact Us</a>
+        <!-- <a href="https://github.com/coin-or/minotaur" target="_blank" class="btn-github">GitHub <i class="fa-solid fa-arrow-up-right-from-square" style="font-size:0.75rem;"></i></a> -->
+      </nav>
+    </div>
+  </header>
 
-            </div>
+  <!-- Hero Banner with Right-Side Logo -->
+  <div class="hero">
+    <div class="container hero-content">
+      <div class="hero-text">
+        <span class="tag">COIN-OR Open-Source Project</span>
+        <h1>Mixed-Integer Nonlinear Optimization Toolkit</h1>
+        <p><a href="https://github.com/coin-or/minotaur">Minotaur</a> is an open-source C++ software framework and solver toolkit for mixed-integer nonlinear programming (MINLP) problems, providing parallel algorithms, relaxations, and presolving routines.</p>
+        <div>
+          <a href="installation.html" class="btn btn-primary">Download &amp; Install</a>
+          <a href="examples.html" class="btn btn-secondary">User Guide</a>
+          <a href="publications.html" class="btn btn-secondary">Publications</a>
         </div>
-    </header>
-    <section class="links" id="extra">
-        <ul>
-            <li>
-                <a href="index.html">Home</a>
-            </li>
-            <li>
-                <a href="downloads.html">Installation</a>
-            </li>
-            <li>
-                <a href="doc.html">User Guide</a>
-            </li>
-            <li>
-                <a href="https://www.ieor.iitb.ac.in/files/faculty/amahajan/minotaur/nightly/origin/html/index.html">Developers Docs</a>
-            </li>
-            <li><a href="https://www.github.com/coin-or/minotaur">Source Code</a></li>
-            <li onclick="func2()"><a href="">Close</a></li>
-        </ul>
+      </div>
+      <div class="hero-logo-box">
+        <img src="Minotaur.jpg" alt="Minotaur Solver Logo" class="hero-logo-img">
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Implemented Solvers Cards Section -->
+    <section>
+      <h2>Implemented Solvers</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3><code>mbnb</code> — Convex MINLP Solver</h3>
+          <p>Nonlinear programming-based branch-and-bound solver designed for convex mixed-integer nonlinear problems.</p>
+        </div>
+        <div class="card">
+          <h3><code>mqg</code> — Branch-and-Cut Engine</h3>
+          <p>An LP/NLP-based Quesada-Grossmann branch-and-cut algorithm for convex MINLPs that generates cutting planes on the fly.</p>
+        </div>
+        <div class="card">
+          <h3><code>mglob</code> — Global Optimizer</h3>
+          <p>Spatial branch-and-bound solver targeting global optimization of Mixed-Integer Quadratically Constrained Quadratic Programs (MIQCQP).</p>
+        </div>
+        <div class="card">
+          <h3><code>mmultistart</code> — Multistart Heuristic</h3>
+          <p>A heuristic search algorithm that runs local optimization searches from multiple start points for general non-convex MINLPs.</p>
+        </div>
+      </div>
     </section>
 
-    <section class="minotaur-info">
-        <div class="minotaur-content">
-            <h1 class="web" style=" align-self: center;">Minotaur Toolkit </h1>
-            <p style="font-size: 20px;">
-                Minotaur is an open-source software for solving Mixed-Integer Nonlinear Optimization (MINLO)
-                problems.
-                It includes solvers for both convex and nonconvex problems. It can be extended or customized for
-                specific problem types.
-            </p>
-            <br>
-            <br>
-           
+    <!-- Toolkit Capabilities Section -->
+    <section>
+      <h2>Toolkit Capabilities</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Algorithmic Framework</h3>
+          <p>Standard C++ implementations of branch-and-bound, branch-and-cut, outer-approximation, and multistart heuristics for convex and nonconvex optimization.</p>
         </div>
-        <div class="logo2">
-            <img src="Minotaur3.png" alt="Minotaur Logo">
+        <div class="card">
+          <h3>Automatic Differentiation</h3>
+          <p>Supports nonlinear functions using automatic differentiation to evaluate first and second-order derivatives for solvers and relaxations.</p>
         </div>
-        <div class="logo3">
-            <div class="img">
-                <img src="Minotaur3.png" alt="Minotaur Logo">
-            </div>
+        <div class="card">
+          <h3>Flexible Integration</h3>
+          <p>Can be run as a standalone executable, called as a C++ library, or integrated with algebraic modeling languages like AMPL and Pyomo.</p>
         </div>
-        
+      </div>
     </section>
+  </main>
 
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Minotaur Toolkit Contributors.</p>
+      <p>A <a href="https://www.coin-or.org" target="_blank">COIN-OR</a> Open Source Project for Mixed-Integer Nonlinear Optimization.</p>
+    </div>
+  </footer>
 
-    <section class="features-solvers">
-        <div class="features">
-            <h2>Features</h2>
-            <ul>
-                <li>Native support for nonlinear functions including automatic differentiation</li>
-                <li>Multithreaded solvers (OA and QG)</li>
-                <li>Uses BQPD, CBC, Clp, CPLEX, FilterSQP, IPOPT for LP, QP and MILP subproblems</li>
-                <li>Compatible with AMPL and Pyomo</li>
-            </ul>
-        </div>
-        <div class="solvers">
-            <h2>Solvers Available</h2>
-            <ul>
-                <li>mbnb: nonlinear optimization based branch-and-bound for convex MINLPs</li>
-                <li>mqg: LP/NLP based branch-and-cut for convex MINLP</li>
-                <!---- <li>mqgpar: Shared-memory parallel version of LP/NLP
-		    based branch-and-cut for convex MINLP</li> ---->
-                <li>mglob: Global optimization solver for quadratically constrained problems.</li>
-                <li>mmultistart: Multistart heuristic for nonconvex MINLP</li>
-            </ul>
-            <p>Also available when compiled with CPLEX:</p>
-            <ul>
-                <li>moa: Outer Approximation for convex MINLP</li>
-                <li>mlstoa: Outer Approximation for convex MINLP with lazy callbacks</li>
-            </ul>
-        </div>
-    </section>
-    <footer class="footer">
-        <a name="license"></a>
-        <div class="license" >
-            <h2>License</h2>
-            <p>Minotaur is free to use, modify, and redistribute without any restrictions.<br> <a href='https://minotaur-solver.github.io/LICENSE.txt'>see the license for details </a></p>
-        </div>
-        <div class="contact" style="margin-left: 4%;">
-            <h2>Contact</h2>
-            <p>Queries about using the software may be addressed to the <a href="https://lists.mcs.anl.gov/mailman/listinfo/minotaur" >Minotaur mailing list</a>. <br>Other queries can be made to Ashutosh Mahajan, amahajan [at] iitb.ac.in</p>
-        </div>
-    </footer>
-    
 </body>
-
-<script>
-
-    const func=()=>{
-        document.getElementById('extra').style.display="block";
-        
-
-    }
-    const func2=()=>{
-        document.getElementById('extra').style.display="none";
-        
-
-    }
-</script>
-
 </html>
